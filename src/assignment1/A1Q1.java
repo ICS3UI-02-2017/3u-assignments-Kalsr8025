@@ -47,6 +47,19 @@ public class A1Q1 {
         //turn west robo//
         robo.turnLeft();
         
-                
+       //move forward 3 times//
+       robo.move(3);
+       
+       //turn left robo//
+       robo.turnLeft();
+       
+       //move forward 3 times//
+       robo.move(3);
+       
+       //turn left//
+       robo.turnLeft();
+       
+       //move foreward 2//
+       robo.move(2);
     }
 }
