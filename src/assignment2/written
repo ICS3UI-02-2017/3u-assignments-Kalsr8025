@@ -1,0 +1,11 @@
+1. robot is on intersection (1, 5) facing north. There is a Wall (0,5) facing south.
+    a) True 
+    b) True 
+    c) False
+    d) False
+    e) False
+    f) True 
+    g) True 
+
+2. They both will behave in the same way 
+    Since, Karel will turn right if he can pick a thing and if not then, it will turn left. 
