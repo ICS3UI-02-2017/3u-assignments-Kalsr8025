@@ -24,6 +24,13 @@ public class A2Q3 {
         //Create the robot
         RobotSE robo= new RobotSE (kalsi,5,4,Direction.EAST);
         
+        //make sure robo faces north 
+        if (robo.getDirection()!=Direction.NORTH){
+               robo.turnLeft();
+        while (robo.getStreet()==0){
+                robo.move();
+        }
+        }
         
     }
 }
