@@ -37,7 +37,7 @@ public class A2Q1 {
         new Thing (kalsi,1,10);
         new Thing (kalsi,1,11);
        
-        //move if the front is clear 
+        //move only when you dont have 7
         while (robo.countThingsInBackpack()<=6){
             //move forward
             robo.move();
@@ -46,8 +46,8 @@ public class A2Q1 {
             
         }
         //robo stops at 12//
-        while (robo.getAvenue()==12){
-        }
+        robo.move(4);
+        
            
     }
     }
