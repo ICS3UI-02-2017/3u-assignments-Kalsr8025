@@ -21,49 +21,52 @@ public class A2Q2 {
      */
     public static void main(String[] args) {
         // create the city 
-        City kalsi= new City ();
-        
+        City kalsi = new City();
+
         //create a robot
-        RobotSE robo = new RobotSE (kalsi,3,0,Direction.EAST);
-        
+        RobotSE robo = new RobotSE(kalsi, 3, 0, Direction.EAST);
+
         //place the ground walls
-        new Wall (kalsi,3,1,Direction.SOUTH);
-        new Wall (kalsi,3,2,Direction.SOUTH);
-        new Wall (kalsi,3,3,Direction.SOUTH);
-        new Wall (kalsi,3,4,Direction.SOUTH);
-        new Wall (kalsi,3,5,Direction.SOUTH);
-        new Wall (kalsi,3,6,Direction.SOUTH);
-        new Wall (kalsi,3,7,Direction.SOUTH);
-        new Wall (kalsi,3,8,Direction.SOUTH);
-        
+        new Wall(kalsi, 3, 1, Direction.SOUTH);
+        new Wall(kalsi, 3, 2, Direction.SOUTH);
+        new Wall(kalsi, 3, 3, Direction.SOUTH);
+        new Wall(kalsi, 3, 4, Direction.SOUTH);
+        new Wall(kalsi, 3, 5, Direction.SOUTH);
+        new Wall(kalsi, 3, 6, Direction.SOUTH);
+        new Wall(kalsi, 3, 7, Direction.SOUTH);
+        new Wall(kalsi, 3, 8, Direction.SOUTH);
+
         //place hurdes
-        new Wall (kalsi,3,1,Direction.EAST);
-        new Wall (kalsi,3,3,Direction.EAST);
-        new Wall (kalsi,3,5,Direction.EAST);
-        new Wall (kalsi,3,7,Direction.EAST);
-        
+        new Wall(kalsi, 3, 1, Direction.EAST);
+        new Wall(kalsi, 3, 3, Direction.EAST);
+        new Wall(kalsi, 3, 4, Direction.EAST);
+        new Wall(kalsi, 3, 7, Direction.EAST);
+
         //The thing at the finishing line
-        new Thing (kalsi,3,8);
-       
-        //move while front is clear
-        while (robo.frontIsClear()){
-                robo.move(1);
-            
-        //move while front is not clear
-        while (!robo.frontIsClear())
-                robo.turnLeft();
+        new Thing(kalsi, 3, 8);
+
+        //robo cant pcik thing then it would go forward
+        while (!robo.canPickThing()) {
+
+            //move if front is clear    
+            while (robo.frontIsClear()) {
                 robo.move();
-                robo.turnRight();
-                robo.move();
-                robo.turnRight();
-                robo.move();
-                robo.turnLeft();
-                
-        //pick a thing         
-        if (robo.canPickThing())
-            robo.pickThing();
-    
-        } 
-        
-  }
+
+                //move if front is not clear
+                while (!robo.frontIsClear()) {
+                    robo.turnLeft();
+                    robo.move();
+                    robo.turnRight();
+                    robo.move();
+                    robo.turnRight();
+                    robo.move();
+                    robo.turnLeft();
+                    
+                    //Robo stops when it gets to avenue 8
+                    while (robo.getAvenue() == 8) {
+                    }
+                }
+            }
+        }
+    }
 }
