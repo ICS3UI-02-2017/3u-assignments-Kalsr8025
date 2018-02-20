@@ -18,19 +18,43 @@ public class A2Q3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // create a city 
-        City kalsi = new City ();
-        
-        //Create the robot
-        RobotSE robo= new RobotSE (kalsi,5,4,Direction.EAST);
-        
-        //make sure robo faces north 
-        if (robo.getDirection()!=Direction.NORTH){
-               robo.turnLeft();
-        while (robo.getStreet()==0){
-                robo.move();
+        //create the city for robot 
+        City kalsi = new City();
+
+        //create a robot 
+        RobotSE robo = new RobotSE(kalsi, 2, 7, Direction.SOUTH);
+
+        //robo face notrh 
+        if (robo.isFacingEast()) {
+            robo.turnLeft();
         }
+        if (robo.isFacingNorth()) {
+            //
         }
-        
+        if (robo.isFacingSouth()) {
+            robo.turnAround();
+        }
+        if (robo.isFacingWest()) {
+            robo.turnRight();
+        }
+
+        //if the street is greater than 0
+        while (robo.getStreet() >= 0) {
+            
+            //robo moves forward 
+            robo.move();
+            
+            //robo turn left at street = 0
+            if (robo.getStreet() == 0) {
+                robo.turnLeft();
+                
+                //move to get to the avenue 0
+                while (robo.getAvenue() >= 0) {
+                    robo.move();
+                    while (robo.getAvenue() == 0) {
+                    }
+                }
+            }
+        }
     }
 }
