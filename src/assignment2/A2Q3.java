@@ -18,48 +18,41 @@ public class A2Q3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // create a city 
+        //create the city for robot 
         City kalsi = new City();
 
-        //Create the robot
-        RobotSE robo = new RobotSE(kalsi, 5, 4, Direction.EAST);
+        //create a robot 
+        RobotSE robo = new RobotSE(kalsi, 2, 7, Direction.SOUTH);
 
-        //make sure robo faces north 
-        if (robo.getDirection() == Direction.NORTH) {
-            //move and get to avnue 0 
-            while (robo.getAvenue() >= 0) {
-                robo.move(1);
-                while (robo.getAvenue() == 0) {
-                }
-            }
-        }
-          //make sure robo faces north
-        if (robo.getDirection() == Direction.EAST) {
+        //robo face notrh 
+        if (robo.isFacingEast()) {
             robo.turnLeft();
-            //move and get to avnue 0 
-            while (robo.getAvenue() >= 0) {
-                robo.move(1);
-                while (robo.getAvenue() == 0) {
-                }
-            }
         }
-          //make sure robo faces north
-        if (robo.getDirection() == Direction.SOUTH) {
+        if (robo.isFacingNorth()) {
+            //
+        }
+        if (robo.isFacingSouth()) {
             robo.turnAround();
-            //move and get to avnue 0 
-            while (robo.getAvenue() >= 0) {
-                robo.move(1);
-                while (robo.getAvenue() == 0) {
-                }
-            }
         }
-          //make sure robo faces north
-        if (robo.getDirection() == Direction.WEST) {
+        if (robo.isFacingWest()) {
             robo.turnRight();
-            //move and get to avnue 0 
-            while (robo.getAvenue() >= 0) {
-                robo.move(1);
-                while (robo.getAvenue() == 0) {
+        }
+
+        //if the street is greater than 0
+        while (robo.getStreet() >= 0) {
+            
+            //robo moves forward 
+            robo.move();
+            
+            //robo turn left at street = 0
+            if (robo.getStreet() == 0) {
+                robo.turnLeft();
+                
+                //move to get to the avenue 0
+                while (robo.getAvenue() >= 0) {
+                    robo.move();
+                    while (robo.getAvenue() == 0) {
+                    }
                 }
             }
         }
