@@ -136,14 +136,24 @@ public class A2Challenge {
         //change the colour of robots
         robo.setColor(Color.BLUE);
         dot.setColor(Color.MAGENTA);
-        
-        //dot move and pick thing up 
-        while (dot.frontIsClear()){
-               dot.move(1);
-               if (dot.canPickThing())
-                   dot.pickThing();
-                   dot.turnLeft();
-               
+
+        //dot to check for driveway
+        while (true) {
+            dot.turnLeft();
+            if (!dot.frontIsClear()) {
+                dot.turnRight();
+            }
+            dot.move();
+            if (dot.canPickThing()) {
+                dot.pickThing();
+                if (!dot.frontIsClear()) {
+                    dot.turnLeft();
+                }
+
+            }
         }
+        //dot to pick snow and shovel it to sidewalk
+        //robo to move and shovel snow to the end
+
     }
 }
