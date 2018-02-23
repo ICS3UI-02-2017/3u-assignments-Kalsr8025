@@ -37,8 +37,19 @@ public class A3Q1 {
         new Wall (kalsi,2,2,Direction.SOUTH);
         
         //create the loop for robo to move around the square twice 
-       
-            
+        int numberofloop = 2; 
+            while (numberofloop > 0 ) {
+                robo.turnaround();
+                robo.move();
+                robo.turnRight();
+                robo.move(3);
+                robo.turnRight();
+                robo.move(3);
+                robo.turnRight();
+                robo.move(3);
+                robo.turnRight();
+                robo.move(2);
+            numberofloops -= 1;      
         }
     }
 }
