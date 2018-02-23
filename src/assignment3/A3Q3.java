@@ -4,6 +4,10 @@
  */
 package assignment3;
 
+import becker.robots.City;
+import becker.robots.Direction;
+import becker.robots.RobotSE;
+
 /**
  *
  * @author kalsr8025
@@ -14,6 +18,10 @@ public class A3Q3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //create the city 
+        City kalsi = new City ();
+        
+        //create the robot
+        RobotSE robo = new RobotSE (kalsi,0,2,Direction.WEST);
     }
 }
