@@ -137,17 +137,17 @@ public class A2Challenge {
         dot.setColor(Color.MAGENTA);
 
         //get dot to pick snow from driveways 
-        while (dot.getAvenue() != 9) {
+        while (dot.getStreet()!= 9) {
             while (dot.frontIsClear()) {
                 dot.move();
                 dot.turnLeft();
-                if (!dot.frontIsClear()) {
+                if (!dot.frontIsClear()) {   //this statement makes a error
                     dot.turnRight();
                 }
-                if (dot.canPickThing()) {
+                while (dot.canPickThing()) {    //if
                     dot.pickThing();
                 }
-                if (!dot.frontIsClear()) {
+                while (!dot.frontIsClear()) { //if
                     dot.turnAround();
                     while (dot.getAvenue() > 2) {
                         dot.move();
@@ -156,7 +156,7 @@ public class A2Challenge {
                         dot.putAllThings();
                     }
 
-                    if (dot.countThingsInBackpack() == 0) {
+                    while (dot.countThingsInBackpack() == 0) {  //if
                         dot.turnLeft();
                         dot.move();
                     }
