@@ -46,7 +46,6 @@ public class A2Challenge {
         new Wall(kalsi, 9, 0, Direction.WEST);
         new Wall(kalsi, 9, 1, Direction.EAST);
 
-
         //Sidewalk walls 
         new Wall(kalsi, 0, 2, Direction.EAST);
         new Wall(kalsi, 3, 2, Direction.EAST);
@@ -137,23 +136,32 @@ public class A2Challenge {
         robo.setColor(Color.BLUE);
         dot.setColor(Color.MAGENTA);
 
-        //dot to check for driveway
-        while (true) {
-            dot.turnLeft();
-            if (!dot.frontIsClear()) {
-                dot.turnRight();
-            }
-            dot.move();
-            if (dot.canPickThing()) {
-                dot.pickThing();
+        //get dot to pick snow from driveways 
+        while (dot.getAvenue() != 9) {
+            while (dot.frontIsClear()) {
+                dot.move();
+                dot.turnLeft();
                 if (!dot.frontIsClear()) {
-                    dot.turnLeft();
+                    dot.turnRight();
                 }
+                if (dot.canPickThing()) {
+                    dot.pickThing();
+                }
+                if (!dot.frontIsClear()) {
+                    dot.turnAround();
+                    while (dot.getAvenue() > 2) {
+                        dot.move();
+                    }
+                    while (dot.countThingsInBackpack() > 0) {
+                        dot.putAllThings();
+                    }
 
+                    if (dot.countThingsInBackpack() == 0) {
+                        dot.turnLeft();
+                        dot.move();
+                    }
+                }
             }
         }
-        //dot to pick snow and shovel it to sidewalk
-        //robo to move and shovel snow to the end
-
     }
 }
