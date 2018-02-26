@@ -22,6 +22,6 @@ public class A3Q3 {
         City kalsi = new City ();
         
         //create the robot
-        RobotSE robo = new RobotSE (kalsi,0,2,Direction.WEST);
+        RobotSE robo = new RobotSE (kalsi,1,1,Direction.WEST);
     }
 }
