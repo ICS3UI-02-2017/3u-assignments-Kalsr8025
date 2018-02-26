@@ -23,7 +23,7 @@ public class A3Q1 {
         City kalsi = new City ();
         
         //create the robot
-        RobotSE robo = new RobotSE (kalsi,0,2,Direction.WEST);
+        RobotSE robo = new RobotSE (kalsi,0,0,Direction.WEST);
         
         //place walls 
         new Wall (kalsi,1,1,Direction.NORTH);
@@ -36,6 +36,13 @@ public class A3Q1 {
         new Wall (kalsi,2,2,Direction.EAST);
         new Wall (kalsi,2,2,Direction.SOUTH);
         
-        //create the loop for robo to move around the square twice 
+        //create the loop
+        int numberofloop = 2; 
+        while (numberofloop > 0 ) {
+        //turn south robo//
+        robo.turnLeft();
+        //move forward 3 times forward robo//
+        robo.move(3);
+        }
     }
 }
