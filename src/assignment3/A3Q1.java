@@ -36,13 +36,12 @@ public class A3Q1 {
         new Wall (kalsi,2,2,Direction.EAST);
         new Wall (kalsi,2,2,Direction.SOUTH);
         
-        //create the loop
-        int numberofloop = 2; 
-        while (numberofloop > 0 ) {
-        //turn south robo//
-        robo.turnLeft();
-        //move forward 3 times forward robo//
-        robo.move(3);
+
+        for (int numberofloop = 0; numberofloop < 8; numberofloop++) {
+            //turn south robo//
+            robo.turnLeft();
+            //move forward 3 times forward robo//
+            robo.move(3);
         }
     }
 }
