@@ -16,12 +16,13 @@ public class A3Q3 {
 
     /**
      * @param args the command line arguments
-     */
+     */ 
     public static void main(String[] args) {
         //create the city 
-        City kalsi = new City ();
-        
+        City kalsi = new City();
+
         //create the robot
-        RobotSE robo = new RobotSE (kalsi,0,2,Direction.WEST);
+        RobotSE robo = new RobotSE(kalsi, 1, 1, Direction.EAST, 20);
+
     }
 }
