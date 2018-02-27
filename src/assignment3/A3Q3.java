@@ -24,9 +24,22 @@ public class A3Q3 {
         //create the robot
         RobotSE robo = new RobotSE(kalsi, 1, 1, Direction.EAST, 20);
 
-        //tell robo to put seed and move 
-      
+        kalsi.showThingCounts(true);
+        //creating the loop
+        for (int seedstoplant = 0; seedstoplant < 4; seedstoplant++) {
+            for (int plantseeds = 0; plantseeds < 5; plantseeds++) {
+                robo.putThing();
+                robo.move();
 
+                while (robo.getAvenue() == 6) {
+                    robo.turnAround();
+                    robo.move(6);
+                }
+                while (robo.getAvenue() == 0) {
+                    robo.turnLeft();
+                    robo.move();
+                }
+            }
+        }
     }
-
 }
