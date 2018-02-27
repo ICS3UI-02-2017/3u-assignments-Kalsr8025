@@ -55,7 +55,6 @@ public class A3Q2 {
         }
         //move to the end 
         robo.move();
-        
     }
 }
 
