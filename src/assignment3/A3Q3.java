@@ -19,9 +19,14 @@ public class A3Q3 {
      */
     public static void main(String[] args) {
         //create the city 
-        City kalsi = new City ();
-        
+        City kalsi = new City();
+
         //create the robot
-        RobotSE robo = new RobotSE (kalsi,1,1,Direction.WEST);
+        RobotSE robo = new RobotSE(kalsi, 1, 1, Direction.EAST, 20);
+
+        //tell robo to put seed and move 
+      
+
     }
+
 }
