@@ -61,8 +61,7 @@ public class A3Q4 {
         new Wall(kalsi, 5, 2, Direction.SOUTH);
         new Wall(kalsi, 5, 4, Direction.SOUTH);
         new Wall(kalsi, 5, 5, Direction.SOUTH);
-
-
+        
         //the robo moves  
         robo.move(3);
         robo.turnLeft();
