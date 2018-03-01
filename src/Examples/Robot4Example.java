@@ -65,7 +65,7 @@ public class Robot4Example {
         //ask what year they were born
         System.out.println("What year were you born in?");
         
-        //make a variable to store teh year info
+        //make a variable to store the year info
         int birthyear = input.nextInt();
         int age = 2018 - birthyear;
         //your an idot loop 
