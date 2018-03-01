@@ -82,5 +82,16 @@ public class Robot4Example {
         }else if (age >15){
             System.out.println("You are about to be adult soon");
         }
+        
+        //Math.round(---);
+        double num = 2.56;
+        num = Math.round(num);
+        
+        //math ceil for 3.0 
+        //math floor for 3
+        
+        Math.pow (3,5);
+        
+        
     }
 }
