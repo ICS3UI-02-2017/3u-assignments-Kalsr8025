@@ -25,6 +25,7 @@ public class A3Q2 {
         //ask city to count things
         kalsi.showThingCounts(true);
         {
+            
         }
         //create the robot
         RobotSE robo = new RobotSE(kalsi, 1, 1, Direction.EAST);
@@ -55,6 +56,5 @@ public class A3Q2 {
         }
         //move to the end 
         robo.move();
-        
     }
 }

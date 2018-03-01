@@ -45,5 +45,6 @@ public class A3Q1 {
             //move forward 3 times forward robo//
             robo.move(3);
         }
+        
     }
 }
