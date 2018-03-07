@@ -81,7 +81,7 @@ public class A4Q5 {
         if ((average) <= 50) {
             System.out.println("You are failing right now");
         }
-        System.out.println(name + " your current average is " + average + "%");
+        System.out.println(name + ", your current average is " + average + "%");
 
     }
 }
