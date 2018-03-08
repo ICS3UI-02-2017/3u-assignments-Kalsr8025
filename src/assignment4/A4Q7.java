@@ -36,6 +36,9 @@ public class A4Q7 {
             player += dice;
         }
         
+        //last line for this 
+        System.out.println("YOU ARE AT " + player);
+        
 
 
         
