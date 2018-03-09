@@ -45,6 +45,7 @@ public class A4Q8 extends javax.swing.JFrame {
 
         name.setText("Name:");
 
+        nametext.setText("Write name in lowercase and press enter");
         nametext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nametextActionPerformed(evt);

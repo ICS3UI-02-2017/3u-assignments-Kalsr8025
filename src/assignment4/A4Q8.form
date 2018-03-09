@@ -75,6 +75,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nametext">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Write name in lowercase and press enter"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nametextActionPerformed"/>
       </Events>
