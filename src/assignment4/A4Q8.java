@@ -28,7 +28,7 @@ public class A4Q8 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        hello = new javax.swing.JButton();
+        helloButton = new javax.swing.JButton();
         name = new javax.swing.JLabel();
         nametext = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -36,16 +36,19 @@ public class A4Q8 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        hello.setText("SUBMIT");
-        hello.addActionListener(new java.awt.event.ActionListener() {
+        helloButton.setFont(new java.awt.Font("Onyx", 0, 24)); // NOI18N
+        helloButton.setText("SUBMIT");
+        helloButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                helloActionPerformed(evt);
+                helloButtonActionPerformed(evt);
             }
         });
 
+        name.setFont(new java.awt.Font("Complex", 2, 14)); // NOI18N
         name.setText("Name:");
 
-        nametext.setText("Write name in lowercase and press enter");
+        nametext.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        nametext.setText("Write Your Name ");
         nametext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nametextActionPerformed(evt);
@@ -54,6 +57,7 @@ public class A4Q8 extends javax.swing.JFrame {
 
         greetfield.setEditable(false);
         greetfield.setColumns(20);
+        greetfield.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         greetfield.setRows(5);
         jScrollPane1.setViewportView(greetfield);
 
@@ -64,16 +68,16 @@ public class A4Q8 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(hello))
+                        .addGap(141, 141, 141)
+                        .addComponent(helloButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(name)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                            .addComponent(nametext))))
-                .addContainerGap(63, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nametext, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,25 +87,25 @@ public class A4Q8 extends javax.swing.JFrame {
                     .addComponent(name)
                     .addComponent(nametext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(hello)
+                .addComponent(helloButton)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void nametextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nametextActionPerformed
+
+    }//GEN-LAST:event_nametextActionPerformed
+
+    private void helloButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helloButtonActionPerformed
         //ask for the name liek scanner 
         String nameofuser = nametext.getText();
         //say to the user 
-        greetfield.setText("Hello " + nameofuser );
-    }//GEN-LAST:event_nametextActionPerformed
-
-    private void helloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helloActionPerformed
-        //
-    }//GEN-LAST:event_helloActionPerformed
+        greetfield.setText("Hello " + nameofuser);
+    }//GEN-LAST:event_helloButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,16 +121,24 @@ public class A4Q8 extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(A4Q8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(A4Q8.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(A4Q8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(A4Q8.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(A4Q8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(A4Q8.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(A4Q8.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(A4Q8.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -139,7 +151,7 @@ public class A4Q8 extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea greetfield;
-    private javax.swing.JButton hello;
+    private javax.swing.JButton helloButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel name;
     private javax.swing.JTextField nametext;
