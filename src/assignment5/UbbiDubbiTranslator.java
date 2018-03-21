@@ -33,33 +33,31 @@ public class UbbiDubbiTranslator {
             System.out.println("");
             System.out.println("Enter a word to translate");
             //string fo the user's word 
-            String orginalword = input.nextLine();
+            String original = input.nextLine();
             //sanitize the word 
-            orginalword = orginalword.toLowerCase();
+            original = original.toLowerCase();
 
             //know the length of the 
-            int length = orginalword.length();
+            int length = original.length();
+
 
             //Check for vowel at start and add a ub 
-            if (orginalword.startsWith("a")
-                    || orginalword.startsWith("e")
-                    || orginalword.startsWith("i")
-                    || orginalword.startsWith("o")
-                    || orginalword.startsWith("u")) {
-                String trans1 = "ub" + orginalword;
+            if (original.startsWith("a")
+                    || original.startsWith("e")
+                    || original.startsWith("i")
+                    || original.startsWith("o")
+                    || original.startsWith("u")) {
+                String trans1 = "ub" + original;
                 System.out.println("Here is the trasalted word " + trans1);
             }
-            //check for two vowels together and add one ub 
-            for (int i = 1; i < length; i++) {
-                if (orginalword.charAt(i) == 'a'
-                        || orginalword.charAt(i) == 'e'
-                        || orginalword.charAt(i) == 'i'
-                        || orginalword.charAt(i) == 'o'
-                        || orginalword.charAt(i) == 'u') {
-                
-                }
-                    
+            //vowel in the word that contains vowel.
+            if (original.contains("a")
+                    || original.contains("e")
+                    || original.contains("i")
+                    || original.contains("o")
+                    || original.contains("u")) {
             }
         }
+
     }
 }
