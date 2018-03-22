@@ -40,7 +40,6 @@ public class UbbiDubbiTranslator {
             //know the length of the 
             int length = original.length();
 
-
             //Check for vowel at start and add a ub 
             if (original.startsWith("a")
                     || original.startsWith("e")
@@ -49,15 +48,27 @@ public class UbbiDubbiTranslator {
                     || original.startsWith("u")) {
                 String trans1 = "ub" + original;
                 System.out.println("Here is the trasalted word " + trans1);
-            }
-            //vowel in the word that contains vowel.
-            if (original.contains("a")
-                    || original.contains("e")
-                    || original.contains("i")
-                    || original.contains("o")
-                    || original.contains("u")) {
+            } else {
+                //vowel in the word that contains vowel.
+                for (int i = 1; i < length; i++) {
+                    //look at chararcter at 
+                    if (original.charAt(i) == 'a'
+                            || original.charAt(i) == 'e'
+                            || original.charAt(i) == 'i'
+                            || original.charAt(i) == 'o'
+                            || original.charAt(i) == 'u') {
+
+                        //break word at vowel 
+                        String vowel = original.substring(0, i);
+                        String vowel2 = original.substring(i);
+                        String trans2 = vowel + "ub" + vowel2;
+                        System.out.println("Here is the trasalted word " + trans2);
+                        break;
+                    }
+                    //tell the transalted word
+
+                }
             }
         }
-
     }
 }
