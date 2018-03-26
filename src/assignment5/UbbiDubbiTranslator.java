@@ -42,13 +42,13 @@ public class UbbiDubbiTranslator {
 
             //make a program so it check each letter to be a vowel or not; add a ub once 
             //and not place with twice vowel 
-            
+
             //if (original.
-                    //|| original.startsWith("e")
-                    //|| original.startsWith("i")
-                   // || original.startsWith("o")
-                   // || original.startsWith("u")) {
-            }
+            //|| original.startsWith("e")
+            //|| original.startsWith("i")
+            // || original.startsWith("o")
+            // || original.startsWith("u")) {
+            //}
         }
     }
 }
