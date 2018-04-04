@@ -4,6 +4,8 @@
  */
 package assignment6;
 
+import java.util.Scanner;
+
 /**
  *
  * @author kalsr8025
@@ -19,5 +21,30 @@ public class A6Q2 {
         //You will first have to ask how many people you are going to be 
         //reading in to create your array. Once you have this, you can begin 
         //reading in the heights
+
+        //add a scanner 
+        Scanner input = new Scanner(System.in);
+
+        // ask for how many students are in the class
+        System.out.println("How many people are there? ");
+
+        //make the int for the number of students 
+        int people = input.nextInt();
+
+        //ask for the marks of each students
+        System.out.println("Please enter each person's height (one by one) ");
+
+        //make the number of array to get the average of all 
+        double[] heights = new double[people];
+        for (int i = 0; i < heights.length; i++) {
+            heights[i] = input.nextInt();
+        }
+        double sum = 0;
+        for (int i = 0; i < heights.length; i++) {
+            sum = sum + heights[i];
+        }
+        sum /= heights.length;
+        //new way of print format 
+        System.out.printf("The average is %.2f \n", sum + "%");
     }
 }

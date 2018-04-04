@@ -29,10 +29,21 @@ public class A6Q1 {
         int students = input.nextInt();
 
         //ask for the marks of each students
-        System.out.println("Please enter each student's mark in a row");
+        System.out.println("Please enter each student's mark");
 
         //make the number of array 
-        int[] marks = new int[students];
+        double[] marks = new double[students];
 
+        for (int i = 0; i < marks.length; i++) {
+            marks[i] = input.nextInt();
+        }
+        double sum = 0;
+        for (int i = 0; i < marks.length; i++) {
+            sum = sum + marks[i];
+        }
+        sum /= marks.length;
+
+        //new way of print format 
+        System.out.printf("The average is %.2f \n", sum + "%");
     }
 }
