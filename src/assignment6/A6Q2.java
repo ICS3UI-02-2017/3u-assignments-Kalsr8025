@@ -32,19 +32,29 @@ public class A6Q2 {
         int people = input.nextInt();
 
         //ask for the marks of each students
-        System.out.println("Please enter each person's height (one by one) ");
+        System.out.println("Please enter each person's heightone by one) ");
 
         //make the number of array to get the average of all 
         double[] heights = new double[people];
+
+        //Inout add into Arrays 
         for (int i = 0; i < heights.length; i++) {
             heights[i] = input.nextInt();
         }
+        //add all the heights 
         double sum = 0;
         for (int i = 0; i < heights.length; i++) {
             sum = sum + heights[i];
         }
+
+        //average calculations 
         sum /= heights.length;
+
+        //get the single number 
+        Math.ceil(sum);
+
         //new way of print format 
-        System.out.printf("The average is %.2f \n", sum + "%");
+        System.out.printf("The average is " + sum);
+
     }
 }

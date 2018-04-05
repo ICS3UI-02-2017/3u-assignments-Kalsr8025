@@ -13,7 +13,7 @@ import becker.robots.RobotSE;
  *
  * @author Kalsr8025
  */
-public class Robot3Example {
+public class ForStatement {
 
     /**
      * @param args the command line arguments

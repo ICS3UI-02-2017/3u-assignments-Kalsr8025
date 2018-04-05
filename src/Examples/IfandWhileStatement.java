@@ -15,7 +15,7 @@ import becker.robots.Wall;
  *
  * @author lamon
  */
-public class Robot2Example {
+public class IfandWhileStatement {
 
     /**
      * @param args the command line arguments

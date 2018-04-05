@@ -15,7 +15,7 @@ import java.awt.Color;
  * Learning how to use the Robots  
  * @author kalsr8025
  */
-public class Robot1Example {
+public class RobotExample {
 
     /**
      * @param args the command line arguments

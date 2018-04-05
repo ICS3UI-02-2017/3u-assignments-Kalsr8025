@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author kalsr8025
  */
-public class Robot4Example {
+public class InputOutput {
 
     /**
      * @param args the command line arguments
