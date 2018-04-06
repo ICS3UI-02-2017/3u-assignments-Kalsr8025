@@ -32,29 +32,31 @@ public class A6Q2 {
         int people = input.nextInt();
 
         //ask for the marks of each students
-        System.out.println("Please enter each person's heightone by one) ");
+        System.out.println("Please enter each person's height (one by one in cm) ");
 
         //make the number of array to get the average of all 
-        double[] heights = new double[people];
+        int[] heights = new int[people];
 
         //Inout add into Arrays 
-        for (int i = 0; i < heights.length; i++) {
-            heights[i] = input.nextInt();
+        for (int a = 0; a < heights.length; a++) {
+            heights[a] = input.nextInt();
         }
-        //add all the heights 
-        double sum = 0;
-        for (int i = 0; i < heights.length; i++) {
-            sum = sum + heights[i];
+        //add all the heights and average calculations 
+        int average = 0;
+        for (int b = 0; b < heights.length; b++) {
+            average = average + heights[b];
         }
+        average /= heights.length;
 
-        //average calculations 
-        sum /= heights.length;
 
-        //get the single number 
-        Math.ceil(sum);
-
-        //new way of print format 
-        System.out.printf("The average is " + sum);
+        //Above average people
+        int aboveaverage = average;
+        for (int c = 0; c < heights.length; c++) {
+            if (heights[c] > aboveaverage) {
+                aboveaverage += 1;
+                System.out.println("Above average height is " + aboveaverage);
+            }
+        }
 
     }
 }

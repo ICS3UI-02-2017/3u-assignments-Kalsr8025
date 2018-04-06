@@ -4,6 +4,8 @@
  */
 package assignment6;
 
+import java.util.Scanner;
+
 /**
  *
  * @author kalsr8025
@@ -17,9 +19,21 @@ public class A6Q3 {
         //Write a program to create and populate an array, A,
         //that contains only two integer elements. Moreover, the program will 
         //ensure the elements are placed in ascending order, once the array has
-        //been populated. For example suppose A is initialized as A[0] := 5 
-        //and A[1] := 3. The program will then interchange the values so that
-        //the resulting modified array is A[0] := 3 and A[1] := 5. The sorted
-        //values are then output to the screen. 
+        //been populated.
+        
+        //add a scanner 
+        Scanner input = new Scanner(System.in);
+
+        // ask for how many students are in the class
+        System.out.println("Enter t___");
+
+        //make the int for the number of students 
+        int[] numbers = new int[2];
+
+        //Inout add into Arrays 
+        for (int a = 0; a < numbers.length; a++) {
+            numbers[a] = input.nextInt();
+        }
+        
     }
 }
