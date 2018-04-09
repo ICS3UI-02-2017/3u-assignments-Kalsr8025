@@ -4,6 +4,9 @@
  */
 package assignment6;
 
+import java.util.Scanner;
+import java.util.Arrays;
+
 /**
  *
  * @author kalsr8025
@@ -16,15 +19,25 @@ public class A6Q4 {
     public static void main(String[] args) {
         //Write a program that will read in a series of 10 marks. 
         //Once read in, the program will sort the array from 
-        //lowest to highest mark. This sort must be done on your own 
-        //The easiest method to do this is called Bubble Sorting.
-        //The pseudocode, something that is code like that describes how
-        //something will work, is the following:The idea is we start at a spot 
-        //and compare every element after that spot.If we have a number that
-        //is smaller, we swap the numbers until we hit the end of the array.
-        //Once we have done this,we are guaranteed to have the smallest element
-        //in that spot.We then move forward to the next spot in our array.
+        //lowest to highest mark. 
 
+        //add a scanner 
+        Scanner input = new Scanner(System.in);
+
+        // ask for how many students are in the class
+        System.out.println("Enter the marks  :");
+
+        //make the int for the number of students 
+        int[] numbers = new int[10];
+
+        //Inout add into Arrays 
+        for (int a = 0; a < numbers.length; a++) {
+            numbers[a] = input.nextInt();
+        }
+
+
+        System.out.println(Arrays.toString(numbers));
 
     }
 }
+
