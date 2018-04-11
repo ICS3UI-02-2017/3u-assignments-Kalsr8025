@@ -30,14 +30,21 @@ public class A6Q4 {
         //make the int for the number of students 
         int[] numbers = new int[10];
 
-        //Inout add into Arrays 
+        //Input add into Arrays 
         for (int a = 0; a < numbers.length; a++) {
             numbers[a] = input.nextInt();
         }
-
-
+        for (int x = 0; x < 9; x++) {
+            for (int y = x + 1; y < 10; y++) {
+                if (numbers[x] > numbers[y]) {
+                    int swap = 0;
+                    swap = numbers[x];
+                    numbers[x] = numbers[y];
+                    numbers[y] = swap;
+                }
+            }
+        }
         System.out.println(Arrays.toString(numbers));
 
     }
 }
-

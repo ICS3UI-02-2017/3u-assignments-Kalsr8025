@@ -30,7 +30,7 @@ public class A6Q3 {
         //make the int for the number of students 
         int[] numbers = new int[2];
 
-        //Inout add into Arrays 
+        //Input add into Arrays 
         for (int a = 0; a < numbers.length; a++) {
             numbers[a] = input.nextInt();
         }
