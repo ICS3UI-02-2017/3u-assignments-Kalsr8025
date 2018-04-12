@@ -51,9 +51,18 @@ public class A6Q6 {
                 }
             }
         }
-        
-       // System.out.println(Arrays.toString(numbers));
 
-        //cal. for median 
+        System.out.println("The number from lowest to hightest " + Arrays.toString(numbers));
+
+        //cal. for average 
+        int average = 0;
+        for (int b = 0; b < numbers.length; b++) {
+            average = average + numbers[b];
+        }
+        average /= numbers.length;
+
+        System.out.println("The average of the class is " + average);
+        System.out.println("The lowest mark is " + numbers[0]);
+        System.out.println("The hightest mark is " + numbers[numbers.length - 1]);
     }
 }
