@@ -16,11 +16,6 @@ public class A6Q3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Write a program to create and populate an array, A,
-        //that contains only two integer elements. Moreover, the program will 
-        //ensure the elements are placed in ascending order, once the array has
-        //been populated.
-
         //add a scanner 
         Scanner input = new Scanner(System.in);
 

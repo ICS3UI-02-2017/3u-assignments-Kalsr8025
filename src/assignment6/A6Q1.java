@@ -16,9 +16,7 @@ public class A6Q1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Read in a list of students’ marks in a computer science class,
-        //and calculate the class mean (average), to (2 decimal places).
-
+      
         //add a scanner 
         Scanner input = new Scanner(System.in);
 

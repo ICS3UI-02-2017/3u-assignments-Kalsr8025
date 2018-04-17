@@ -17,9 +17,6 @@ public class A6Q4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Write a program that will read in a series of 10 marks. 
-        //Once read in, the program will sort the array from 
-        //lowest to highest mark. 
 
         //add a scanner 
         Scanner input = new Scanner(System.in);

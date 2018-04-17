@@ -39,9 +39,20 @@ public class A6Q7 {
 
         //place each numbers in the array 
         for (int x = 0; x < numbers.length; x++) {
-            numbers[x] = (x+2);
-            System.out.println(numbers[x]);
+            numbers[x] = (x + 2);
         }
 
+        //boolean statement 
+        boolean[] numprime = new boolean[999];
+        for (int a = 0; a < 999; a++) {
+            numprime[a] = true;
+        }
+
+        for (int b = 0; b < 999; b++) {
+            if (numprime[b] == true) {
+                System.out.println("The prime number is " + numbers[b]);
+            }
+
+        }
     }
 }
