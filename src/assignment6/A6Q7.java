@@ -16,41 +16,45 @@ public class A6Q7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Create a program that will determine all of the prime numbers between 
-        //2 and 1000. You will use a process called "The Sieve of Eratosthenes"
-        //A Sieve of Eratosthenes works in the following manner: Create 
-        //a list of consecutive integers from 2 to n: (2, 3, 4, ..., n ).  This is the sieve
-        //Initially, let p equal 2, the first prime number.  Starting from p
-        //count up in increments of p and mark each of these numbers greater than 
-        //p itself in the list.These will be multiples of p; 2p, 3p, 4p, etc.;
-        //note that some of them may have already been marked
-        //Find the first number greater than p in the list that is not marked. If there 
-        //was no such number, stop. Otherwise, let p now equal this number(which is 
-        //the next prime), and repeat from step 3. All the numbers not marked in the
-        //list are prime. You can use a boolean array to mark as true (it is a prime) 
-        //or false(it is not a prime). The index of the array will correspond to the number 
-        //you are investigating as a prime (i.e., the spot 5 in the boolean array would 
-        //determine if 5  {was prime or not).
-
+        // add a scanner to know what the user have wrote.  
         Scanner input = new Scanner(System.in);
 
-        //make the int for the number of students 
-        int[] numbers = new int[999];
+        // ask for how many numbers are there
+        System.out.println("How many numbers are there?");
 
-        //place each numbers in the array 
-        for (int x = 0; x < numbers.length; x++) {
-            numbers[x] = (x + 2);
+        //make a int for the number user input
+        int num = input.nextInt();
+
+        //Creating the array 
+        int[] listofnum = new int[num];
+
+        //add a extra line 
+        System.out.println("");
+
+        //adding the numbers to array 
+        for (int p = 0; p < listofnum.length; p++) {
+            listofnum[p] = (p + 2);
         }
 
-        //boolean statement 
-        boolean[] numprime = new boolean[999];
-        for (int a = 0; a < 999; a++) {
+        //creating boolean to equal to true 
+        boolean[] numprime = new boolean[num];
+        for (int a = 0; a < listofnum.length; a++) {
             numprime[a] = true;
         }
 
-        for (int b = 0; b < 999; b++) {
-            if (numprime[b] == true) {
-                System.out.println("The prime number is " + numbers[b]);
+        //print out only is it true 
+        for (int pn = 0; pn < listofnum.length; pn++) {
+            if (numprime[pn] == true) {
+                System.out.println("The prime number is " + listofnum[pn]);
+            }
+
+            //dont print out; if the number is not prime 
+            for (int pn2 = 0; pn2 < listofnum.length; pn2++) {
+                if (listofnum[pn2] % listofnum[pn] == 0) {
+                    numprime[pn2] = false;
+
+                }
+
             }
 
         }
