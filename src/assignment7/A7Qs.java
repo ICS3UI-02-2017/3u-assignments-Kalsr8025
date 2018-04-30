@@ -39,16 +39,22 @@ public class A7Qs {
     }
 
     //Method for question 3
-    public static void factor(int[] num) {
-        for (int x = 0; x < num.length; x++) {
-            num[x] += 1;
+    public static void factor(int num) {
+        int[] numarry = new int[num];
+        for (int x = 0; x < numarry.length; x++) {
+            numarry[x] = (x + 1);
+        }
+        for (int i = 0; i < numarry.length; i++) {
+            if ((num % numarry[i]) == 0) {
+                System.out.println(numarry[i]);
 
-            for (int i = 0; i < num.length; i++) {
-                if (num[x] % num[i] == 0) {
-                    System.out.println(num [i]);
-                }
             }
         }
+    }
+
+    //Method for question 4
+    public static void compoundInterest(double dollar) {
+        //double answer =
     }
 
     public static void main(String[] args) {
@@ -73,9 +79,19 @@ public class A7Qs {
 
         //question 3
         System.out.println("factor of :");
-        int num  = in.nextInt();
-        factorNum (num); 
+        int num = in.nextInt();
+        factor(num);
 
+        //space 
+        System.out.println(" ");
 
+        //Question 4
+        System.out.println("Enter the Initial principal:");
+        double initial = in.nextDouble();
+        System.out.println("Enter the Interest rate:");
+        double rate = in.nextDouble();
+        System.out.println("Enter the number of years:");
+        double year = in.nextDouble();
+        compoundInterest(dollar);
     }
 }
