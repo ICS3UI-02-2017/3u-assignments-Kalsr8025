@@ -80,10 +80,10 @@ public class A7Qs {
         }
         return finalnum;
     }
-    
+
     //Method for Question 7
-    public static double firstDigit(double num2){
-        
+    public static double firstDigit(double num2) {
+
     }
 
     public static void main(String[] args) {
@@ -143,10 +143,10 @@ public class A7Qs {
         double number = in.nextDouble();
         double answer = lastDigit(number);
         System.out.printf("The last digit is %.0f \n", answer);
-        
-         //Space 
+
+        //Space 
         System.out.println("________________________________________________________________");
-        
+
         //Question 7
         System.out.println("Enter the numbers: ");
         double number2 = in.nextDouble();
