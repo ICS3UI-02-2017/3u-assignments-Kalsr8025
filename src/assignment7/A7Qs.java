@@ -83,7 +83,18 @@ public class A7Qs {
 
     //Method for Question 7
     public static double firstDigit(double num2) {
-
+        for (int i = 0; i < num2; i++) {
+            if (num2 < -10){
+                num2 = num2 %10;
+            }
+            else if (num2 > 10){
+                num2 = num2 %10;
+            }
+             if (num2 < 0) {
+            num2 = num2 * -1;
+        }    
+        }
+        return num2;
     }
 
     public static void main(String[] args) {
@@ -150,7 +161,7 @@ public class A7Qs {
         //Question 7
         System.out.println("Enter the numbers: ");
         double number2 = in.nextDouble();
-        double answerolast = firstDigit(number);
-        System.out.printf("The last digit is %.0f \n", answer);
+        double answerlast = firstDigit(number2);
+        System.out.printf("The last digit is %.0f \n", answerlast);
     }
 }
