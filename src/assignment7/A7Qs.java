@@ -8,14 +8,16 @@ import java.util.Scanner;
 
 /**
  *
+ *
+ *
  * @author kalsr8025
+ *
  */
 public class A7Qs {
 
     //Method for question 1
     public static double circleArea(double r) {
         double area = Math.PI * Math.pow(r, 2);
-        Math.floor(area);
         return area;
     }
 
@@ -44,17 +46,44 @@ public class A7Qs {
         for (int x = 0; x < numarry.length; x++) {
             numarry[x] = (x + 1);
         }
+
         for (int i = 0; i < numarry.length; i++) {
             if ((num % numarry[i]) == 0) {
-                System.out.println(numarry[i]);
-
+                System.out.println("Factors are " + numarry[i]);
             }
         }
     }
 
     //Method for question 4
-    public static void compoundInterest(double dollar) {
-        //double answer =
+    public static double compoundInterest(double p, double r, double n) {
+        double b = p * (Math.pow((1 + r), n));
+        System.out.println("New Balance is $" + b);
+        return b;
+    }
+
+    //Method for Question 5
+    public static void chaotic(int x, int n, int a) {
+        for (int i = 0; i < x; i++) {
+            int random = (int) (Math.random() * (n - a + 1)) + a;
+            for (int y = 0; y < random; y++) {
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+    }
+
+    //Method for Question 6
+    public static double lastDigit(double num) {
+        double finalnum = num % 10;
+        if (finalnum < 0) {
+            finalnum = finalnum * -1;
+        }
+        return finalnum;
+    }
+    
+    //Method for Question 7
+    public static double firstDigit(double num2){
+        
     }
 
     public static void main(String[] args) {
@@ -64,10 +93,10 @@ public class A7Qs {
         System.out.println("Type the radius of circle below:");
         double rofcircle = in.nextDouble();
         double area = circleArea(rofcircle);
-        System.out.println("The area of the circle is " + area);
+        System.out.printf("The area of the circle is %.2f \n", area);
 
         //space 
-        System.out.println(" ");
+        System.out.println("________________________________________________________________");
 
         //question 2
         System.out.println("Enter the mark below: ");
@@ -75,7 +104,7 @@ public class A7Qs {
         examGrade(mark);
 
         //space
-        System.out.println(" ");
+        System.out.println("________________________________________________________________");
 
         //question 3
         System.out.println("factor of :");
@@ -83,7 +112,7 @@ public class A7Qs {
         factor(num);
 
         //space 
-        System.out.println(" ");
+        System.out.println("________________________________________________________________");
 
         //Question 4
         System.out.println("Enter the Initial principal:");
@@ -92,6 +121,36 @@ public class A7Qs {
         double rate = in.nextDouble();
         System.out.println("Enter the number of years:");
         double year = in.nextDouble();
-        compoundInterest(dollar);
+        double b = compoundInterest(initial, rate, year);
+
+        //Space 
+        System.out.println("________________________________________________________________");
+
+        //Question 5
+        System.out.println("how many lines of asterisks do you want? ");
+        int lines = in.nextInt();
+        System.out.println("Highest number of * : ");
+        int n = in.nextInt();
+        System.out.println("Lowest number of * : ");
+        int a = in.nextInt();
+        chaotic(lines, n, a);
+
+        //Space 
+        System.out.println("________________________________________________________________");
+
+        //Question 6
+        System.out.println("Enter the numbers: ");
+        double number = in.nextDouble();
+        double answer = lastDigit(number);
+        System.out.printf("The last digit is %.0f \n", answer);
+        
+         //Space 
+        System.out.println("________________________________________________________________");
+        
+        //Question 7
+        System.out.println("Enter the numbers: ");
+        double number2 = in.nextDouble();
+        double answerolast = firstDigit(number);
+        System.out.printf("The last digit is %.0f \n", answer);
     }
 }
