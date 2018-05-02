@@ -73,8 +73,8 @@ public class A7Qs {
     }
 
     //Method for Question 6
-    public static double lastDigit(double num) {
-        double finalnum = num % 10;
+    public static int lastDigit(int num) {
+        int finalnum = num % 10;
         if (finalnum < 0) {
             finalnum = finalnum * -1;
         }
@@ -82,19 +82,39 @@ public class A7Qs {
     }
 
     //Method for Question 7
-    public static double firstDigit(double num2) {
-        for (int i = 0; i < num2; i++) {
-            if (num2 < -10){
-                num2 = num2 %10;
-            }
-            else if (num2 > 10){
-                num2 = num2 %10;
-            }
-             if (num2 < 0) {
+    public static int firstDigit(int num2) {
+        if (num2 < 0) {
             num2 = num2 * -1;
-        }    
+        }
+        for (int i = 0; i < num2; i++) {
+            if (num2 > 10) {
+                int reminder = num2 % 10;
+                num2 = num2 - reminder;
+                num2 /= 10;
+            }
         }
         return num2;
+    }
+
+    //Method for Question 8 
+    public static boolean allDigit(int numbers) {
+        boolean evenodd = true;
+        int reminder = numbers % 10;
+        for (int i = 0; i < numbers; i++) {
+            if (numbers > 10) {
+                numbers = numbers - reminder;
+                numbers /= 10;
+            }
+
+            if (reminder % 2 == 0) {
+                evenodd = false;
+                break;
+            }
+            if (!(reminder % 2 == 0)) {
+                evenodd = true;
+            }
+        }
+        return evenodd;
     }
 
     public static void main(String[] args) {
@@ -151,17 +171,25 @@ public class A7Qs {
 
         //Question 6
         System.out.println("Enter the numbers: ");
-        double number = in.nextDouble();
-        double answer = lastDigit(number);
-        System.out.printf("The last digit is %.0f \n", answer);
+        int number = in.nextInt();
+        int answer = lastDigit(number);
+        System.out.println("The last digit is " + answer);
 
         //Space 
         System.out.println("________________________________________________________________");
 
         //Question 7
         System.out.println("Enter the numbers: ");
-        double number2 = in.nextDouble();
-        double answerlast = firstDigit(number2);
-        System.out.printf("The last digit is %.0f \n", answerlast);
+        int number2 = in.nextInt();
+        int answerlast = firstDigit(number2);
+        System.out.println("The last digit is " + answerlast);
+
+        //Space 
+        System.out.println("________________________________________________________________");
+
+        //Question 8 
+        System.out.println("Enter the even number: ");
+        int even = in.nextInt();
+        System.out.println(allDigit(even));
     }
 }
