@@ -230,8 +230,8 @@ public class A7Qs {
         //Question 8 
         //Ask for a odd number 
         System.out.println("Enter the odd number: ");
-        int even = in.nextInt();
+        int odd = in.nextInt();
         //print the answer got from the method 
-        System.out.println(allDigit(even));
+        System.out.println(allDigit(odd));
     }
 }
