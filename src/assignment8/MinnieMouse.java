@@ -1,5 +1,6 @@
 package assignment8;
 
+import static assignment8.Emoji.WIDTH;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -18,29 +19,35 @@ import javax.swing.Timer;
  *
  * @author Kalsr8025
  */
-public class Face1 extends JComponent implements ActionListener {
+public class MinnieMouse extends JComponent implements ActionListener {
 
     // Height and Width of our game
-    static final int WIDTH = 800;
-    static final int HEIGHT = 800;
+    static final int WIDTH = 750;
+    static final int HEIGHT = 750;
+
     //Title of the window
     String title = "My Game";
+
     // sets the framerate and delay for our game
     // this calculates the number of milliseconds per frame
     // you just need to select an approproate framerate
     int desiredFPS = 60;
     int desiredTime = Math.round((1000 / desiredFPS));
+    
     // timer used to run the game loop
     // this is what keeps our time running smoothly :)
     Timer gameTimer;
+
     // YOUR GAME VARIABLES WOULD GO HERE
-    Color brown = new Color(168, 114, 38);
-    Color face = new Color(229, 197, 82);
+       Color faceskin = new Color(239, 195, 129); 
+
 
     // GAME VARIABLES END HERE    
+
+    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
-    public Face1() {
+    public MinnieMouse(){
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
 
@@ -62,8 +69,8 @@ public class Face1 extends JComponent implements ActionListener {
         this.addMouseMotionListener(m);
         this.addMouseWheelListener(m);
         this.addMouseListener(m);
-
-        gameTimer = new Timer(desiredTime, this);
+        
+        gameTimer = new Timer(desiredTime,this);
         gameTimer.setRepeats(true);
         gameTimer.start();
     }
@@ -77,32 +84,33 @@ public class Face1 extends JComponent implements ActionListener {
         g.clearRect(0, 0, WIDTH, HEIGHT);
 
         // GAME DRAWING GOES HERE
-        //Change a Background 
+        //Make the face of Minnie Mouse 
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, 800, 800);
-
-        //Draw the face
-        g.setColor(face);
-        //draw an oval 
-        g.fillOval(100, 100, WIDTH / 2, HEIGHT / 2);
-
-        //Draw the eyes 
-        // g.setColor(Color.WHITE);
-        //draw circle for eyes
-        //  g.fillOval(200, 200, 60, 60);
-        //  g.fillOval(350, 200, 60, 60);
-        //outline the eyes, 
-        //  g.setColor(Color.BLACK);
-        //  g.drawOval(200, 200, 60, 60);
-        //  g.drawOval(350, 200, 60, 60);
-
-        //Draw eyes 
-        g.setColor(brown);
-        g.fillOval(225, 175, 40, 100);
-        g.fillOval(325, 175, 40, 100);
+        g.fillOval(125, 200, 500, 500);
         
-        //Draw Mouth 
-        g.fillArc(175, 225, 250, 200, 180, 180);
+        //ears 
+        g.fillOval(45, 40, 275, 275);
+        g.fillOval(400, 40, 275, 275);
+        
+        //face skin 
+        g.setColor(faceskin);
+        g.fillOval(250, 250, 150, 300);
+        g.fillOval(350, 250, 150, 300);
+        g.fillOval(125, 450, 500, 200);
+        
+        //eyes
+        g.setColor(Color.WHITE);
+        g.fillOval(300, 300, 50, 160);
+        g.fillOval(400, 300, 50, 160);
+        
+        //pupils 
+        g.setColor(Color.BLACK);
+        g.fillOval(313, 350, 25, 75);
+        g.fillOval(413, 350, 25, 75);
+        
+        
+		
+		
         // GAME DRAWING ENDS HERE
     }
 
@@ -110,11 +118,13 @@ public class Face1 extends JComponent implements ActionListener {
     // This is run before the game loop begins!
     public void preSetup() {
         // Any of your pre setup before the loop starts should go here
+
     }
 
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
+        
     }
 
     // Used to implement any of the Mouse Actions
@@ -123,21 +133,25 @@ public class Face1 extends JComponent implements ActionListener {
         // if a mouse button has been pressed down
         @Override
         public void mousePressed(MouseEvent e) {
+
         }
 
         // if a mouse button has been released
         @Override
         public void mouseReleased(MouseEvent e) {
+
         }
 
         // if the scroll wheel has been moved
         @Override
         public void mouseWheelMoved(MouseWheelEvent e) {
+
         }
 
         // if the mouse has moved positions
         @Override
         public void mouseMoved(MouseEvent e) {
+
         }
     }
 
@@ -147,11 +161,13 @@ public class Face1 extends JComponent implements ActionListener {
         // if a key has been pressed down
         @Override
         public void keyPressed(KeyEvent e) {
+
         }
 
         // if a key has been released
         @Override
         public void keyReleased(KeyEvent e) {
+
         }
     }
 
@@ -167,6 +183,7 @@ public class Face1 extends JComponent implements ActionListener {
      */
     public static void main(String[] args) {
         // creates an instance of my game
-        Face1 game = new Face1();
+        MinnieMouse game = new MinnieMouse();
     }
 }
+
