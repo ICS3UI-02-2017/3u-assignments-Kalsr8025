@@ -26,17 +26,27 @@ public class MickeyMouse extends JComponent implements ActionListener {
     static final int WIDTH = 750;
     static final int HEIGHT = 750;
     //Title of the window
-    String title = "My Game";
+    String title = "Mickey Mouse";
     // sets the framerate and delay for our game
     // this calculates the number of milliseconds per frame
     // you just need to select an approproate framerate
-    int desiredFPS = 60;
+    int desiredFPS = 5;
     int desiredTime = Math.round((1000 / desiredFPS));
     // timer used to run the game loop
     // this is what keeps our time running smoothly :)
     Timer gameTimer;
     // YOUR GAME VARIABLES WOULD GO HERE
     Color faceskin = new Color(239, 195, 129);
+    //int for the moving of nose
+    int nosemove = 300;
+    int nosedotmove = 385;
+    //int of movement of eyes 
+    int eyemove1x = 280;
+    int eyedotmove1x = 300;
+    int eyemove2x = 425;
+    int eyedotmove2x = 445;
+    int eyemove1y = 370;
+    int eyemove2y = 380;
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -81,11 +91,9 @@ public class MickeyMouse extends JComponent implements ActionListener {
         //Make the face of Minnie Mouse 
         g.setColor(Color.BLACK);
         g.fillOval(125, 200, 500, 450);
-
         //ears 
         g.fillOval(45, 30, 275, 275);
         g.fillOval(400, 30, 275, 275);
-
         //face skin 
         g.setColor(faceskin);
         g.fillOval(125, 450, 500, 200);
@@ -97,37 +105,33 @@ public class MickeyMouse extends JComponent implements ActionListener {
         g.fillOval(275, 550, 200, 150);
         g.setColor(Color.BLACK);
         g.drawArc(275, 550, 200, 150, 180, 180);
-
         //eyes
         g.setColor(Color.WHITE);
-        g.fillOval(250, 290, 100, 160);
-        g.fillOval(400, 290, 100, 160);
+        g.fillOval(250, 310, 100, 160);
+        g.fillOval(400, 310, 100, 160);
         g.setColor(Color.BLACK);
-        g.drawOval(250, 290, 100, 160);
-        g.drawOval(400, 290, 100, 160);
-
+        g.drawOval(250, 310, 100, 160);
+        g.drawOval(400, 310, 100, 160);
         //pupils 
         g.setColor(Color.BLACK);
-        g.fillOval(280, 350, 40, 75);
-        g.fillOval(425, 350, 40, 75);
+        g.fillOval(eyemove1x, eyemove1y, 40, 75);
+        g.fillOval(eyemove2x, eyemove1y, 40, 75);
         g.setColor(Color.WHITE);
-        g.fillOval(300, 360, 10, 10);
-        g.fillOval(445, 360, 10, 10);
-
+        g.fillOval(eyedotmove1x, eyemove2y, 10, 10);
+        g.fillOval(eyedotmove2x, eyemove2y, 10, 10);
         //nose 
         g.setColor(Color.BLACK);
-        g.fillOval(300, 480, 150, 90);
+        g.fillOval(nosemove, 480, 150, 90);
         g.setColor(Color.WHITE);
-        g.fillOval(385, 495, 30, 30);
-
+        g.fillOval(nosedotmove, 495, 30, 30);
         //mouth
         g.setColor(Color.BLACK);
         g.fillArc(300, 525, 150, 150, 180, 180);
         g.setColor(Color.PINK);
         g.fillArc(325, 560, 100, 100, 180, 180);
-        //g.setColor(Color.RED);
-       // g.fillOval(350, 580, 20, 20);
-        
+        g.setColor(Color.RED);
+        g.fillOval(345, 630, 60, 30);
+
         // GAME DRAWING ENDS HERE
     }
 
@@ -140,6 +144,34 @@ public class MickeyMouse extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
+        //make the nose and make the nose dot move 
+        if (nosemove == 300) {
+            nosemove += 10;
+            nosedotmove += 10;
+        } else if (nosemove == 310) {
+            nosemove -= 20;
+            nosedotmove -= 20;
+        } else if (nosemove == 290) {
+            nosemove += 10;
+            nosedotmove += 10;
+        }
+
+        //make the eyes move 
+        if (eyemove1x == 280) {
+            eyemove1x += 10;
+            eyedotmove1x += 10;
+            eyemove2x += 10;
+            eyedotmove2x += 10;
+            eyemove1y -= 10;
+            eyemove2y -= 10;
+        } else if (eyemove1x == 290) {
+            eyemove1x -= 10;
+            eyedotmove1x -= 10;
+            eyemove2x -= 10;
+            eyedotmove2x -= 10;
+            eyemove1y += 10;
+            eyemove2y += 10;
+        }
     }
 
     // Used to implement any of the Mouse Actions
