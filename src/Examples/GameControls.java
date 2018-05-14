@@ -1,10 +1,11 @@
-package assignment8;
+package Examples;
 
-import java.awt.Color;
+import static Examples.Animation.WIDTH;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -18,38 +19,37 @@ import javax.swing.Timer;
  *
  * @author Kalsr8025
  */
-public class MickeyMouse extends JComponent implements ActionListener {
+public class GameControls extends JComponent implements ActionListener {
 
     // Height and Width of our game
-    static final int WIDTH = 750;
-    static final int HEIGHT = 750;
+    static final int WIDTH = 800;
+    static final int HEIGHT = 600;
     //Title of the window
-    String title = "Mickey Mouse";
+    String title = "My Game";
     // sets the framerate and delay for our game
     // this calculates the number of milliseconds per frame
     // you just need to select an approproate framerate
-    int desiredFPS = 5;
+    int desiredFPS = 60;
     int desiredTime = Math.round((1000 / desiredFPS));
     // timer used to run the game loop
     // this is what keeps our time running smoothly :)
     Timer gameTimer;
     // YOUR GAME VARIABLES WOULD GO HERE
-    Color faceskin = new Color(239, 195, 129);
-    //int for the moving of nose
-    int nosemove = 300;
-    int nosedotmove = 385;
-    //int of movement of eyes 
-    int eyemove1x = 280;
-    int eyedotmove1x = 300;
-    int eyemove2x = 425;
-    int eyedotmove2x = 445;
-    int eyemove1y = 370;
-    int eyemove2y = 380;
+    int pacmanX = 100;
+    int pacmanY = 400;
+    int pacmanangle = 45;
+    int pacmanrotate = 270;
+    boolean pacmanclose = true;
+    int mouseX = 0;
+    int mouseY = 0;
+    //keyword boolean 
+    boolean moveup = false;
+    boolean movedown = false;
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
-    public MickeyMouse() {
+    public GameControls() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
 
@@ -86,49 +86,18 @@ public class MickeyMouse extends JComponent implements ActionListener {
         g.clearRect(0, 0, WIDTH, HEIGHT);
 
         // GAME DRAWING GOES HERE
-        //Make the face of Minnie Mouse 
+        //Arc
         g.setColor(Color.BLACK);
-        g.fillOval(125, 200, 500, 450);
-        //ears 
-        g.fillOval(45, 30, 275, 275);
-        g.fillOval(400, 30, 275, 275);
-        //face skin 
-        g.setColor(faceskin);
-        g.fillOval(125, 450, 500, 200);
+        //(x,y,width,height,start angle, amount of rotation
+        g.fillArc(pacmanX, pacmanY, 100, 100, pacmanangle, pacmanrotate);
+
+        //Colour for oval 
+        g.setColor(Color.yellow);
+        //draw anything that is an oval 
+        g.fillOval(mouseX, mouseY, WIDTH / 6, HEIGHT / 6);
+        //Outline
         g.setColor(Color.BLACK);
-        g.drawOval(125, 450, 500, 200);
-        g.setColor(faceskin);
-        g.fillOval(200, 250, 200, 300);
-        g.fillOval(350, 250, 200, 300);
-        g.fillOval(275, 550, 200, 150);
-        g.setColor(Color.BLACK);
-        g.drawArc(275, 550, 200, 150, 180, 180);
-        //eyes
-        g.setColor(Color.WHITE);
-        g.fillOval(250, 310, 100, 160);
-        g.fillOval(400, 310, 100, 160);
-        g.setColor(Color.BLACK);
-        g.drawOval(250, 310, 100, 160);
-        g.drawOval(400, 310, 100, 160);
-        //pupils 
-        g.setColor(Color.BLACK);
-        g.fillOval(eyemove1x, eyemove1y, 40, 75);
-        g.fillOval(eyemove2x, eyemove1y, 40, 75);
-        g.setColor(Color.WHITE);
-        g.fillOval(eyedotmove1x, eyemove2y, 10, 10);
-        g.fillOval(eyedotmove2x, eyemove2y, 10, 10);
-        //nose 
-        g.setColor(Color.BLACK);
-        g.fillOval(nosemove, 480, 150, 90);
-        g.setColor(Color.WHITE);
-        g.fillOval(nosedotmove, 495, 30, 30);
-        //mouth
-        g.setColor(Color.BLACK);
-        g.fillArc(300, 525, 150, 150, 180, 180);
-        g.setColor(Color.PINK);
-        g.fillArc(325, 560, 100, 100, 180, 180);
-        g.setColor(Color.RED);
-        g.fillOval(345, 630, 60, 30);
+        g.drawOval(mouseX, mouseY, WIDTH / 6, HEIGHT / 6);
 
         // GAME DRAWING ENDS HERE
     }
@@ -142,33 +111,33 @@ public class MickeyMouse extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
-        //make the nose and make the nose dot move 
-        if (nosemove == 300) {
-            nosemove += 10;
-            nosedotmove += 10;
-        } else if (nosemove == 310) {
-            nosemove -= 20;
-            nosedotmove -= 20;
-        } else if (nosemove == 290) {
-            nosemove += 10;
-            nosedotmove += 10;
+        pacmanX += 1;
+        //when pacman leaves the screen 
+        if (pacmanX > WIDTH) {
+            pacmanX = -100;
         }
 
-        //make the eyes move 
-        if (eyemove1x == 280) {
-            eyemove1x += 10;
-            eyedotmove1x += 10;
-            eyemove2x += 10;
-            eyedotmove2x += 10;
-            eyemove1y -= 10;
-            eyemove2y -= 10;
-        } else if (eyemove1x == 290) {
-            eyemove1x -= 10;
-            eyedotmove1x -= 10;
-            eyemove2x -= 10;
-            eyedotmove2x -= 10;
-            eyemove1y += 10;
-            eyemove2y += 10;
+        //make pacman's mouth move
+        if (pacmanangle <= 0) {
+            pacmanclose = false;
+        }
+        if (pacmanangle >= 45) {
+            pacmanclose = true;
+        }
+        if (pacmanclose) {
+            pacmanrotate += 2;
+            pacmanangle -= 1;
+        } else {
+            pacmanrotate -= 2;
+            pacmanangle += 1;
+        }
+
+        //move player
+        if (moveup) {
+            pacmanY -= 3;
+        } else if (movedown) {
+            pacmanY += 3;
+
         }
     }
 
@@ -193,6 +162,10 @@ public class MickeyMouse extends JComponent implements ActionListener {
         // if the mouse has moved positions
         @Override
         public void mouseMoved(MouseEvent e) {
+            //set the mouse coordinates 
+            mouseX = e.getX();
+            mouseY = e.getY();
+
         }
     }
 
@@ -202,11 +175,29 @@ public class MickeyMouse extends JComponent implements ActionListener {
         // if a key has been pressed down
         @Override
         public void keyPressed(KeyEvent e) {
+            //get the keycode 
+            int keycode = e.getKeyCode();
+
+            //which key is being pressed
+            if (keycode == KeyEvent.VK_UP) {
+                moveup = true;
+            } else if (keycode == KeyEvent.VK_DOWN) {
+                movedown = true;
+            }
         }
 
         // if a key has been released
         @Override
         public void keyReleased(KeyEvent e) {
+            //get the keycode 
+            int keycode = e.getKeyCode();
+
+            //which key is being pressed
+            if (keycode == KeyEvent.VK_UP) {
+                moveup = false;
+            } else if (keycode == KeyEvent.VK_DOWN) {
+                movedown = false;
+            }
         }
     }
 
@@ -222,6 +213,6 @@ public class MickeyMouse extends JComponent implements ActionListener {
      */
     public static void main(String[] args) {
         // creates an instance of my game
-        MickeyMouse game = new MickeyMouse();
+        GameControls game = new GameControls();
     }
 }

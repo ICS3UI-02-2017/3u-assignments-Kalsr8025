@@ -18,7 +18,7 @@ import javax.swing.Timer;
  *
  * @author Kalsr8025
  */
-public class Game extends JComponent implements ActionListener {
+public class Animation extends JComponent implements ActionListener {
 
     // Height and Width of our game
     static final int WIDTH = 800;
@@ -43,7 +43,7 @@ public class Game extends JComponent implements ActionListener {
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
-    public Game() {
+    public Animation() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
 
@@ -183,6 +183,6 @@ public class Game extends JComponent implements ActionListener {
      */
     public static void main(String[] args) {
         // creates an instance of my game
-        Game game = new Game();
+        Animation game = new Animation();
     }
 }
