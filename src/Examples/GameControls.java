@@ -139,7 +139,7 @@ public class GameControls extends JComponent implements ActionListener {
             pacmanY += 3;
 
         }
-    }
+ }
 
     // Used to implement any of the Mouse Actions
     private class Mouse extends MouseAdapter {
