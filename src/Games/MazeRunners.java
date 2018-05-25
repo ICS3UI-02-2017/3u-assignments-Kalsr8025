@@ -1,10 +1,11 @@
 package Games;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -52,8 +53,25 @@ public class MazeRunners extends JComponent implements ActionListener {
     Rectangle path6 = new Rectangle(200, 100, 50, 100);
     Rectangle path11 = new Rectangle(400, 200, 50, 100);
     Rectangle path12 = new Rectangle(500, 360, 50, 100);
-    // GAME VARIABLES END HERE    
+    Rectangle path13 = new Rectangle(300, 450, 50, 100);
+    Rectangle path14 = new Rectangle(700, 450, 50, 100);
+    Rectangle path15 = new Rectangle(456, 600, 50, 100);
+    //new paths 
+    Rectangle path16 = new Rectangle(580, 200, 50, 100);
+    Rectangle path17 = new Rectangle(150, 360, 50, 100);
+    Rectangle path18 = new Rectangle(190, 600, 50, 100);
+    Rectangle path19 = new Rectangle(225, 250, 50, 100);
+    Rectangle path20 = new Rectangle(650, 600, 50, 100);
+    //text on the players 
+    Font biggerfont = new Font("arial", Font.BOLD, 20);
+    int p1 = 1;
+    int p2 = 2;
+    //score for the coins collected 
+    Font scorefont = new Font("arial", Font.BOLD, 60);
+    int p1score = 0;
+    int p2score = 0;
 
+    // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
     public MazeRunners() {
@@ -98,10 +116,10 @@ public class MazeRunners extends JComponent implements ActionListener {
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         //Score screen at the bottom 
-        g.setColor(Color.YELLOW);
-        g.fillRect(0, 800, 900, 100);
+        g.setColor(Color.BLUE);
+        g.fillRect(0, 800, 900, 200);
 
-        //wall path 
+        // pathway 
         g.setColor(Color.GRAY);
         g.fillRect(path1.x, path1.y, path1.width, path1.height);
         g.fillRect(path2.x, path2.y, path2.width, path2.height);
@@ -115,7 +133,54 @@ public class MazeRunners extends JComponent implements ActionListener {
         g.fillRect(path10.x, path10.y, path10.width, path10.height);
         g.fillRect(path11.x, path11.y, path11.width, path11.height);
         g.fillRect(path12.x, path12.y, path12.width, path12.height);
+        g.fillRect(path13.x, path13.y, path13.width, path13.height);
+        g.fillRect(path14.x, path14.y, path14.width, path14.height);
+        g.fillRect(path15.x, path15.y, path15.width, path15.height);
+        g.fillRect(path16.x, path16.y, path16.width, path16.height);
+        g.fillRect(path17.x, path17.y, path17.width, path17.height);
+        g.fillRect(path18.x, path18.y, path18.width, path18.height);
+        g.fillRect(path19.x, path19.y, path19.width, path19.height);
+        g.fillRect(path20.x, path20.y, path20.width, path20.height);
 
+
+        //Players 
+        //player 1
+        g.setColor(Color.RED);
+        g.fillOval(55, 55, 50, 50);
+
+        //player 2
+        g.setColor(Color.MAGENTA);
+        g.fillOval(795, 55, 50, 50);
+
+        //font the players 
+        //player 1 font 
+        g.setColor(Color.BLACK);
+        g.setFont(biggerfont);
+        g.drawString("" + p1, 73, 87);
+        g.drawString("" + p2, 815, 87);
+
+        //text on the bottom 
+        //player 1 bottom
+        g.setColor(Color.RED);
+        g.fillOval(55, 825, 50, 50);
+        //player 2 bottom 
+        g.setColor(Color.MAGENTA);
+        g.fillOval(550, 825, 50, 50);
+        //text on players at the bottom 
+        g.setColor(Color.BLACK);
+        g.setFont(biggerfont);
+        g.drawString("" + p1, 70, 860);
+        g.drawString("" + p2, 570, 860);
+
+
+        //Placing Coins in the pathway 
+        g.setColor(Color.YELLOW);
+
+        //scores 
+        //draw scores 
+        g.setFont(scorefont);
+        g.drawString("" + p1score, 225, 875);
+        g.drawString("" + p2score, 720, 875);
 
 
 
@@ -131,6 +196,18 @@ public class MazeRunners extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
+        checkForCollision();
+        player1Move();
+        player2Move();
+    }
+
+    private void checkForCollision() {
+    }
+
+    private void player1Move() {
+    }
+
+    private void player2Move() {
     }
 
     // Used to implement any of the Mouse Actions
