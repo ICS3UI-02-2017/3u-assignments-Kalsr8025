@@ -23,18 +23,23 @@ public class A7Qs {
 
     //Method for question 2
     public static void examGrade(int mark) {
+        //If less than 50 then print F
         if (mark < 50) {
             System.out.println(" F ");
         }
+        //If in between 49 and 60 then print F
         if (mark > 49 && mark < 60) {
             System.out.println(" D ");
         }
+        //If in between 61 and 70 then print F
         if (mark > 61 && mark < 70) {
             System.out.println(" C ");
         }
+        //If in between 71 and 80 then print F
         if (mark > 71 && mark < 80) {
             System.out.println(" B ");
         }
+        //If less than 81 then print F
         if (mark > 81) {
             System.out.println(" A ");
         }
@@ -43,10 +48,11 @@ public class A7Qs {
     //Method for question 3
     public static void factor(int num) {
         int[] numarry = new int[num];
+        //add numbers to array 
         for (int x = 0; x < numarry.length; x++) {
             numarry[x] = (x + 1);
         }
-
+        //if reminder is 0 than print out 
         for (int i = 0; i < numarry.length; i++) {
             if ((num % numarry[i]) == 0) {
                 System.out.println("Factors are " + numarry[i]);
@@ -101,8 +107,11 @@ public class A7Qs {
         Scanner in = new Scanner(System.in);
 
         // question 1 
+        //Ask a Question 
         System.out.println("Type the radius of circle below:");
+        //Get the answer 
         double rofcircle = in.nextDouble();
+        //add circle of area into area double 
         double area = circleArea(rofcircle);
         System.out.printf("The area of the circle is %.2f \n", area);
 
@@ -110,58 +119,84 @@ public class A7Qs {
         System.out.println("________________________________________________________________");
 
         //question 2
+        //Ask for mark
         System.out.println("Enter the mark below: ");
+        //collect mark
         int mark = in.nextInt();
+        //relate it to method 
         examGrade(mark);
 
         //space
         System.out.println("________________________________________________________________");
 
         //question 3
+        //ask for number 
         System.out.println("factor of :");
+        //collect number 
         int num = in.nextInt();
+        //relate to method 
         factor(num);
 
         //space 
         System.out.println("________________________________________________________________");
 
         //Question 4
+        //ask questions and make a double for it 
         System.out.println("Enter the Initial principal:");
         double initial = in.nextDouble();
         System.out.println("Enter the Interest rate:");
         double rate = in.nextDouble();
         System.out.println("Enter the number of years:");
         double year = in.nextDouble();
+        //send the int to method 
         double b = compoundInterest(initial, rate, year);
 
         //Space 
         System.out.println("________________________________________________________________");
 
         //Question 5
+        //ask questions
         System.out.println("how many lines of asterisks do you want? ");
         int lines = in.nextInt();
         System.out.println("Highest number of * : ");
         int n = in.nextInt();
         System.out.println("Lowest number of * : ");
         int a = in.nextInt();
+        //send it back to method 
         chaotic(lines, n, a);
 
         //Space 
         System.out.println("________________________________________________________________");
 
         //Question 6
-        System.out.println("Enter the numbers: ");
-        double number = in.nextDouble();
-        double answer = lastDigit(number);
-        System.out.printf("The last digit is %.0f \n", answer);
+        //Ask for number 
+        System.out.println("Enter the number: ");
+        int number = in.nextInt();
+        //get the answer from method 
+        int answer = lastDigit(number);
+        //pritn it out 
+        System.out.println("The last digit is " + answer);
 
         //Space 
         System.out.println("________________________________________________________________");
 
         //Question 7
-        System.out.println("Enter the numbers: ");
-        double number2 = in.nextDouble();
-        double answerlast = firstDigit(number2);
-        System.out.printf("The last digit is %.0f \n", answerlast);
+        //Ask question 
+        System.out.println("Enter the number: ");
+        int number2 = in.nextInt();
+        //Get the answer from method 
+        int answerlast = firstDigit(number2);
+        //pritn it out 
+        System.out.println("The last digit is " + answerlast);
+
+        //Space 
+        System.out.println("________________________________________________________________");
+
+        //Question 8 
+        //Ask for a odd number 
+        System.out.println("Enter the odd number: ");
+        int odd = in.nextInt();
+        //print the answer got from the method 
+        System.out.println(allDigit(odd));
     }
 }
