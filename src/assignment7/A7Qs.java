@@ -90,17 +90,37 @@ public class A7Qs {
     //Method for Question 7
     public static double firstDigit(double num2) {
         for (int i = 0; i < num2; i++) {
-            if (num2 < -10){
-                num2 = num2 %10;
+            if (num2 < -10) {
+                num2 = num2 % 10;
+            } else if (num2 > 10) {
+                num2 = num2 % 10;
             }
-            else if (num2 > 10){
-                num2 = num2 %10;
+            if (num2 < 0) {
+                num2 = num2 * -1;
             }
-             if (num2 < 0) {
-            num2 = num2 * -1;
-        }    
         }
         return num2;
+    }
+
+    //Method for Question 8 
+    public static boolean allDigit(int numbers) {
+        boolean evenodd = true;
+        int reminder = numbers % 10;
+        for (int i = 0; i < numbers; i++) {
+            if (numbers > 10) {
+                numbers = numbers - reminder;
+                numbers /= 10;
+            }
+
+            if (reminder % 2 == 0) {
+                evenodd = false;
+                break;
+            }
+            if (!(reminder % 2 == 0)) {
+                evenodd = true;
+            }
+        }
+        return evenodd;
     }
 
     public static void main(String[] args) {
@@ -173,7 +193,7 @@ public class A7Qs {
         System.out.println("Enter the number: ");
         int number = in.nextInt();
         //get the answer from method 
-        int answer = lastDigit(number);
+        int answer = (int) lastDigit(number);
         //pritn it out 
         System.out.println("The last digit is " + answer);
 
@@ -185,7 +205,7 @@ public class A7Qs {
         System.out.println("Enter the number: ");
         int number2 = in.nextInt();
         //Get the answer from method 
-        int answerlast = firstDigit(number2);
+        int answerlast = (int) firstDigit(number2);
         //pritn it out 
         System.out.println("The last digit is " + answerlast);
 
