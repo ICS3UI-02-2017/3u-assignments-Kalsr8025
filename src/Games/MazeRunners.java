@@ -39,26 +39,23 @@ public class MazeRunners extends JComponent implements ActionListener {
     //maze walls 
     //The outer path 
     Rectangle path = new Rectangle(50, 50, 800, 700);
-
     //squares on each corner  
-    Rectangle path1 = new Rectangle(100, 100, 100, 100);
-    Rectangle path2 = new Rectangle(700, 100, 100, 100);
-    Rectangle path3 = new Rectangle(700, 600, 100, 100);
-    Rectangle path4 = new Rectangle(100, 600, 100, 100);
-    //
-    Rectangle path5 = new Rectangle(100, 250, 700, 50);
-    Rectangle path6 = new Rectangle(500, 100, 50, 150);
-    Rectangle path7 = new Rectangle(300, 100, 150, 100);
-    Rectangle path8 = new Rectangle(150, 350, 500, 50);
-    Rectangle path9 = new Rectangle(100, 450, 200, 100);
-    Rectangle path10 = new Rectangle(400, 450, 50, 250);
-    //
-    Rectangle path11 = new Rectangle(300, 500, 50, 150);
-    Rectangle path12 = new Rectangle(550, 450, 250, 70);
-    Rectangle path13 = new Rectangle(500, 600, 150, 50);
-    Rectangle path14 = new Rectangle(750, 350, 50, 50);
-    Rectangle path15 = new Rectangle(650, 100, 50, 50);
-
+    Rectangle wall1 = new Rectangle(100, 100, 100, 100);
+    Rectangle wall2 = new Rectangle(700, 100, 100, 100);
+    Rectangle wall3 = new Rectangle(700, 600, 100, 100);
+    Rectangle wall4 = new Rectangle(100, 600, 100, 100);
+    // inside 
+    Rectangle wall5 = new Rectangle(100, 250, 700, 50);
+    Rectangle wall6 = new Rectangle(500, 100, 50, 150);
+    Rectangle wall7 = new Rectangle(300, 100, 150, 100);
+    Rectangle wall8 = new Rectangle(150, 350, 500, 50);
+    Rectangle wall9 = new Rectangle(100, 450, 200, 100);
+    Rectangle wall10 = new Rectangle(400, 450, 50, 250);
+//    Rectangle wall11 = new Rectangle(300, 500, 50, 150);
+//    Rectangle wall12 = new Rectangle(550, 450, 250, 70);
+//    Rectangle wall13 = new Rectangle(500, 600, 150, 50);
+//    Rectangle wall14 = new Rectangle(750, 350, 50, 50);
+//    Rectangle wall15 = new Rectangle(650, 100, 50, 50);
     //text on the players 
     Font biggerfont = new Font("arial", Font.BOLD, 20);
     int p1 = 1;
@@ -67,7 +64,6 @@ public class MazeRunners extends JComponent implements ActionListener {
     Font scorefont = new Font("arial", Font.BOLD, 60);
     int p1score = 0;
     int p2score = 0;
-
     //player moves 
     //player 1
     boolean player1UP = false;
@@ -79,7 +75,6 @@ public class MazeRunners extends JComponent implements ActionListener {
     boolean player2DOWN = false;
     boolean player2RIGHT = false;
     boolean player2LEFT = false;
-
     //players 
     int p1x = 55;
     int p1y = 55;
@@ -138,21 +133,21 @@ public class MazeRunners extends JComponent implements ActionListener {
         g.setColor(Color.GRAY);
         g.fillRect(path.x, path.y, path.width, path.height);
         g.setColor(Color.GREEN);
-        g.fillRect(path1.x, path1.y, path1.width, path1.height);
-        g.fillRect(path2.x, path2.y, path2.width, path2.height);
-        g.fillRect(path3.x, path3.y, path3.width, path3.height);
-        g.fillRect(path4.x, path4.y, path4.width, path4.height);
-        g.fillRect(path5.x, path5.y, path5.width, path5.height);
-        g.fillRect(path6.x, path6.y, path6.width, path6.height);
-       g.fillRect(path7.x, path7.y, path7.width, path7.height);
-        g.fillRect(path8.x, path8.y, path8.width, path8.height);
-        g.fillRect(path9.x, path9.y, path9.width, path9.height);
-        g.fillRect(path10.x, path10.y, path10.width, path10.height);
-        g.fillRect(path11.x, path11.y, path11.width, path11.height);
-        g.fillRect(path12.x, path12.y, path12.width, path12.height);
-        g.fillRect(path13.x, path13.y, path13.width, path13.height);
-        g.fillRect(path14.x, path14.y, path14.width, path14.height);
-        g.fillRect(path15.x, path15.y, path15.width, path15.height);
+        g.fillRect(wall1.x, wall1.y, wall1.width, wall1.height);
+        g.fillRect(wall2.x, wall2.y, wall2.width, wall2.height);
+        g.fillRect(wall3.x, wall3.y, wall3.width, wall3.height);
+        g.fillRect(wall4.x, wall4.y, wall4.width, wall4.height);
+        g.fillRect(wall5.x, wall5.y, wall5.width, wall5.height);
+        g.fillRect(wall6.x, wall6.y, wall6.width, wall6.height);
+        g.fillRect(wall7.x, wall7.y, wall7.width, wall7.height);
+        g.fillRect(wall8.x, wall8.y, wall8.width, wall8.height);
+        g.fillRect(wall9.x, wall9.y, wall9.width, wall9.height);
+        g.fillRect(wall10.x, wall10.y, wall10.width, wall10.height);
+//        g.fillRect(wall11.x, wall11.y, wall11.width, wall11.height);
+//        g.fillRect(wall12.x, wall12.y, wall12.width, wall12.height);
+//        g.fillRect(wall13.x, wall13.y, wall13.width, wall13.height);
+//        g.fillRect(wall14.x, wall14.y, wall14.width, wall14.height);
+//        g.fillRect(wall15.x, wall15.y, wall15.width, wall15.height);
 
         //Players 
         //player 1
@@ -228,31 +223,34 @@ public class MazeRunners extends JComponent implements ActionListener {
     private void checkForCollision() {
         //big square borders 
         //player 1
-//        if (p1x == path.x){
-//            p1x =55;
-//        }
-//        if (p1y == path.y){
-//            p1y = 55;
-//        }
-//        if ((p1x - 30) == path.width){
-//            p1x--;
-//        }
-//        if ((p1y - 30) == path.height){
-//            p1y--;
-//        }
-//        //player 2
-//        if (p2x == path.x){
-//            p2x =795;
-//        }
-//        if (p2y == path.y){
-//            p2y = 55;
-//        }
-//        if (p2x == (path.width + 10)){
-//            p2x =795;
-//        }
-//        if (p2y == (path.height + 10)){
-//            p1y = 55;
-//        }
+        if (p1x < path.x) {
+            p1x = 55;
+        }
+        if (p1y < path.y) {
+            p1y = 55;
+        }
+        if ((p1y + 30) > 750) {
+            p1y = 710;
+        }
+        if ((p1x + 30) > 850) {
+            p1x = 810;
+        }
+        //player 2 
+        if (p2x < path.x) {
+            p2x = 55;
+        }
+        if (p2y < path.y) {
+            p2y = 55;
+        }
+        if ((p2y + 30) > 750) {
+            p2y = 710;
+        }
+        if ((p2x + 30) > 850) {
+            p2x = 810;
+        }
+        
+        //collision with other walls 
+        //player 1
 
     }
 
