@@ -51,11 +51,11 @@ public class MazeRunners extends JComponent implements ActionListener {
     Rectangle wall8 = new Rectangle(150, 350, 500, 50);
     Rectangle wall9 = new Rectangle(100, 450, 200, 100);
     Rectangle wall10 = new Rectangle(400, 450, 50, 250);
-//    Rectangle wall11 = new Rectangle(300, 500, 50, 150);
-//    Rectangle wall12 = new Rectangle(550, 450, 250, 70);
-//    Rectangle wall13 = new Rectangle(500, 600, 150, 50);
-//    Rectangle wall14 = new Rectangle(750, 350, 50, 50);
-//    Rectangle wall15 = new Rectangle(650, 100, 50, 50);
+    Rectangle wall11 = new Rectangle(300, 500, 50, 150);
+    Rectangle wall12 = new Rectangle(550, 450, 250, 70);
+    Rectangle wall13 = new Rectangle(500, 600, 150, 50);
+    Rectangle wall14 = new Rectangle(750, 350, 50, 50);
+    Rectangle wall15 = new Rectangle(650, 100, 50, 50);
     //text on the players 
     Font biggerfont = new Font("arial", Font.BOLD, 20);
     int p1 = 1;
@@ -143,11 +143,11 @@ public class MazeRunners extends JComponent implements ActionListener {
         g.fillRect(wall8.x, wall8.y, wall8.width, wall8.height);
         g.fillRect(wall9.x, wall9.y, wall9.width, wall9.height);
         g.fillRect(wall10.x, wall10.y, wall10.width, wall10.height);
-//        g.fillRect(wall11.x, wall11.y, wall11.width, wall11.height);
-//        g.fillRect(wall12.x, wall12.y, wall12.width, wall12.height);
-//        g.fillRect(wall13.x, wall13.y, wall13.width, wall13.height);
-//        g.fillRect(wall14.x, wall14.y, wall14.width, wall14.height);
-//        g.fillRect(wall15.x, wall15.y, wall15.width, wall15.height);
+        g.fillRect(wall11.x, wall11.y, wall11.width, wall11.height);
+        g.fillRect(wall12.x, wall12.y, wall12.width, wall12.height);
+        g.fillRect(wall13.x, wall13.y, wall13.width, wall13.height);
+        g.fillRect(wall14.x, wall14.y, wall14.width, wall14.height);
+       g.fillRect(wall15.x, wall15.y, wall15.width, wall15.height);
 
         //Players 
         //player 1
