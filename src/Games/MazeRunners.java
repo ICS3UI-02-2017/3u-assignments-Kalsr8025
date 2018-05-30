@@ -39,23 +39,8 @@ public class MazeRunners extends JComponent implements ActionListener {
     //maze walls 
     //The outer path 
     Rectangle path = new Rectangle(50, 50, 800, 700);
-    //squares on each corner  
-    Rectangle wall1 = new Rectangle(100, 100, 100, 100);
-    Rectangle wall2 = new Rectangle(700, 100, 100, 100);
-    Rectangle wall3 = new Rectangle(700, 600, 100, 100);
-    Rectangle wall4 = new Rectangle(100, 600, 100, 100);
-    // inside 
-    Rectangle wall5 = new Rectangle(100, 250, 700, 50);
-    Rectangle wall6 = new Rectangle(500, 100, 50, 150);
-    Rectangle wall7 = new Rectangle(300, 100, 150, 100);
-    Rectangle wall8 = new Rectangle(150, 350, 500, 50);
-    Rectangle wall9 = new Rectangle(100, 450, 200, 100);
-    Rectangle wall10 = new Rectangle(400, 450, 50, 250);
-    Rectangle wall11 = new Rectangle(300, 500, 50, 150);
-    Rectangle wall12 = new Rectangle(550, 450, 250, 70);
-    Rectangle wall13 = new Rectangle(500, 600, 150, 50);
-    Rectangle wall14 = new Rectangle(750, 350, 50, 50);
-    Rectangle wall15 = new Rectangle(650, 100, 50, 50);
+    //inner barriers 
+    Rectangle[] walls = new Rectangle[15];
     //text on the players 
     Font biggerfont = new Font("arial", Font.BOLD, 20);
     int p1 = 1;
@@ -78,7 +63,6 @@ public class MazeRunners extends JComponent implements ActionListener {
     //players 
     Rectangle player1 = new Rectangle(55, 55, 30, 30);
     Rectangle player2 = new Rectangle(795, 55, 30, 30);
-    
     //coins 
     Rectangle coins = new Rectangle(55, 55, 30, 30);
 
@@ -107,6 +91,7 @@ public class MazeRunners extends JComponent implements ActionListener {
         this.addMouseMotionListener(m);
         this.addMouseWheelListener(m);
         this.addMouseListener(m);
+        preSetup();
 
         gameTimer = new Timer(desiredTime, this);
         gameTimer.setRepeats(true);
@@ -132,26 +117,26 @@ public class MazeRunners extends JComponent implements ActionListener {
 
         //
         g.setColor(Color.WHITE);
-        
+
         // pathway 
         g.setColor(Color.GRAY);
         g.fillRect(path.x, path.y, path.width, path.height);
         g.setColor(Color.GREEN);
-        g.fillRect(wall1.x, wall1.y, wall1.width, wall1.height);
-        g.fillRect(wall2.x, wall2.y, wall2.width, wall2.height);
-        g.fillRect(wall3.x, wall3.y, wall3.width, wall3.height);
-        g.fillRect(wall4.x, wall4.y, wall4.width, wall4.height);
-        g.fillRect(wall5.x, wall5.y, wall5.width, wall5.height);
-        g.fillRect(wall6.x, wall6.y, wall6.width, wall6.height);
-        g.fillRect(wall7.x, wall7.y, wall7.width, wall7.height);
-        g.fillRect(wall8.x, wall8.y, wall8.width, wall8.height);
-        g.fillRect(wall9.x, wall9.y, wall9.width, wall9.height);
-        g.fillRect(wall10.x, wall10.y, wall10.width, wall10.height);
-        g.fillRect(wall11.x, wall11.y, wall11.width, wall11.height);
-        g.fillRect(wall12.x, wall12.y, wall12.width, wall12.height);
-        g.fillRect(wall13.x, wall13.y, wall13.width, wall13.height);
-        g.fillRect(wall14.x, wall14.y, wall14.width, wall14.height);
-        g.fillRect(wall15.x, wall15.y, wall15.width, wall15.height);
+        g.fillRect(walls[0].x, walls[0].y, walls[0].width, walls[0].height);
+        g.fillRect(walls[1].x, walls[1].y, walls[1].width, walls[1].height);
+        g.fillRect(walls[2].x, walls[2].y, walls[2].width, walls[2].height);
+        g.fillRect(walls[3].x, walls[3].y, walls[3].width, walls[3].height);
+        g.fillRect(walls[4].x, walls[4].y, walls[4].width, walls[4].height);
+        g.fillRect(walls[5].x, walls[5].y, walls[5].width, walls[5].height);
+        g.fillRect(walls[6].x, walls[6].y, walls[6].width, walls[6].height);
+        g.fillRect(walls[7].x, walls[7].y, walls[7].width, walls[7].height);
+        g.fillRect(walls[8].x, walls[8].y, walls[8].width, walls[8].height);
+        g.fillRect(walls[9].x, walls[9].y, walls[9].width, walls[9].height);
+        g.fillRect(walls[10].x, walls[10].y, walls[10].width, walls[10].height);
+        g.fillRect(walls[11].x, walls[11].y, walls[11].width, walls[11].height);
+        g.fillRect(walls[12].x, walls[12].y, walls[12].width, walls[12].height);
+        g.fillRect(walls[13].x, walls[13].y, walls[13].width, walls[13].height);
+        g.fillRect(walls[14].x, walls[14].y, walls[14].width, walls[14].height);
 
         //Players 
         //player 1
@@ -179,8 +164,8 @@ public class MazeRunners extends JComponent implements ActionListener {
         //Placing Coins in the pathway 
         g.setColor(Color.YELLOW);
         //COINS 
-        
-        
+
+
         //scores 
         //draw scores 
         g.setColor(Color.GREEN);
@@ -195,6 +180,22 @@ public class MazeRunners extends JComponent implements ActionListener {
     // This is run before the game loop begins!
     public void preSetup() {
         // Any of your pre setup before the loop starts should go here
+        walls[0] = new Rectangle(100, 100, 100, 100);
+        walls[1] = new Rectangle(700, 100, 100, 100);
+        walls[2] = new Rectangle(700, 600, 100, 100);
+        walls[3] = new Rectangle(100, 600, 100, 100);
+        // inside 
+        walls[4] = new Rectangle(100, 250, 700, 50);
+        walls[5] = new Rectangle(500, 100, 50, 150);
+        walls[6] = new Rectangle(300, 100, 150, 100);
+        walls[7] = new Rectangle(150, 350, 500, 50);
+        walls[8] = new Rectangle(100, 450, 200, 100);
+        walls[9] = new Rectangle(400, 450, 50, 250);
+        walls[10] = new Rectangle(300, 500, 50, 150);
+        walls[11] = new Rectangle(550, 450, 250, 70);
+        walls[12] = new Rectangle(500, 600, 150, 50);
+        walls[13] = new Rectangle(750, 350, 50, 50);
+        walls[14] = new Rectangle(650, 100, 50, 50);
     }
 
     // The main game loop
@@ -237,188 +238,21 @@ public class MazeRunners extends JComponent implements ActionListener {
 
         //collision with other walls 
         //player 1
-        if (player1.intersects(wall1)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall2)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall3)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall4)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall5)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall6)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall7)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall8)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall9)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall10)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall11)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall12)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall13)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall14)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall15)) {
-            player1.x = 55;
-            player1.y = 55;
+        for (int x = 0; x < walls.length; x++) {
+            if (player1.intersects(walls[0])) {
+                player1.x = 55;
+                player1.y = 55;
+            }
         }
 
-        //player 2 
-        if (player2.intersects(wall1)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player1.intersects(wall2)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall3)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall4)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall5)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall6)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall7)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall8)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall9)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall10)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall11)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall12)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall13)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall14)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall15)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
         //player 2
-         if (player2.intersects(wall1)) {
-            player2.x = 795;
-            player2.y = 55;
+        for (int y = 0; y < walls.length; y++) {
+            if (player2.intersects(walls[0])) {
+                player2.x = 795;
+                player2.y = 55;
+            }
         }
-        if (player2.intersects(wall2)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall3)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall4)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall5)) {
-            player2.x = 795;
-            player2.y = 55;
-        }if (player2.intersects(wall6)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall7)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall8)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall9)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall10)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall11)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall12)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall13)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall14)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall15)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
+
     }
 
     private void player1Move() {
@@ -452,7 +286,6 @@ public class MazeRunners extends JComponent implements ActionListener {
     }
 
     private void collectingcoins() {
-      
     }
 
     // Used to implement any of the Mouse Actions
@@ -548,7 +381,6 @@ public class MazeRunners extends JComponent implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        preSetup();
         gameLoop();
         repaint();
     }

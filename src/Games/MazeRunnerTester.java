@@ -45,22 +45,7 @@ public class MazeRunnerTester extends JComponent implements ActionListener {
     Rectangle[] walls = new Rectangle[15]; 
     
     //squares on each corner  
-    Rectangle wall1 = new Rectangle(100, 100, 100, 100);
-    Rectangle wall2 = new Rectangle(700, 100, 100, 100);
-    Rectangle wall3 = new Rectangle(700, 600, 100, 100);
-    Rectangle wall4 = new Rectangle(100, 600, 100, 100);
-    // inside 
-    Rectangle wall5 = new Rectangle(100, 250, 700, 50);
-    Rectangle wall6 = new Rectangle(500, 100, 50, 150);
-    Rectangle wall7 = new Rectangle(300, 100, 150, 100);
-    Rectangle wall8 = new Rectangle(150, 350, 500, 50);
-    Rectangle wall9 = new Rectangle(100, 450, 200, 100);
-    Rectangle wall10 = new Rectangle(400, 450, 50, 250);
-    Rectangle wall11 = new Rectangle(300, 500, 50, 150);
-    Rectangle wall12 = new Rectangle(550, 450, 250, 70);
-    Rectangle wall13 = new Rectangle(500, 600, 150, 50);
-    Rectangle wall14 = new Rectangle(750, 350, 50, 50);
-    Rectangle wall15 = new Rectangle(650, 100, 50, 50);
+    
     //text on the players 
     Font biggerfont = new Font("arial", Font.BOLD, 20);
     int p1 = 1;
@@ -112,6 +97,7 @@ public class MazeRunnerTester extends JComponent implements ActionListener {
         this.addMouseMotionListener(m);
         this.addMouseWheelListener(m);
         this.addMouseListener(m);
+        preSetup();
 
         gameTimer = new Timer(desiredTime, this);
         gameTimer.setRepeats(true);
@@ -137,30 +123,13 @@ public class MazeRunnerTester extends JComponent implements ActionListener {
 
         //
         g.setColor(Color.WHITE);
-        for (int i = 0; i < walls.length; i++) {
-            //walls [1]= 
-            
-        }
         
         // pathway 
         g.setColor(Color.GRAY);
         g.fillRect(path.x, path.y, path.width, path.height);
         g.setColor(Color.GREEN);
-        g.fillRect(wall1.x, wall1.y, wall1.width, wall1.height);
-        g.fillRect(wall2.x, wall2.y, wall2.width, wall2.height);
-        g.fillRect(wall3.x, wall3.y, wall3.width, wall3.height);
-        g.fillRect(wall4.x, wall4.y, wall4.width, wall4.height);
-        g.fillRect(wall5.x, wall5.y, wall5.width, wall5.height);
-        g.fillRect(wall6.x, wall6.y, wall6.width, wall6.height);
-        g.fillRect(wall7.x, wall7.y, wall7.width, wall7.height);
-        g.fillRect(wall8.x, wall8.y, wall8.width, wall8.height);
-        g.fillRect(wall9.x, wall9.y, wall9.width, wall9.height);
-        g.fillRect(wall10.x, wall10.y, wall10.width, wall10.height);
-        g.fillRect(wall11.x, wall11.y, wall11.width, wall11.height);
-        g.fillRect(wall12.x, wall12.y, wall12.width, wall12.height);
-        g.fillRect(wall13.x, wall13.y, wall13.width, wall13.height);
-        g.fillRect(wall14.x, wall14.y, wall14.width, wall14.height);
-        g.fillRect(wall15.x, wall15.y, wall15.width, wall15.height);
+        g.fillRect(walls[0].x, walls[0].y, walls[0].width, walls[0].height);
+        
 
         //Players 
         //player 1
@@ -204,6 +173,8 @@ public class MazeRunnerTester extends JComponent implements ActionListener {
     // This is run before the game loop begins!
     public void preSetup() {
         // Any of your pre setup before the loop starts should go here
+        walls[0] = new Rectangle(100, 100, 100, 100);
+   
     }
 
     // The main game loop
@@ -246,188 +217,188 @@ public class MazeRunnerTester extends JComponent implements ActionListener {
 
         //collision with other walls 
         //player 1
-        if (player1.intersects(wall1)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall2)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall3)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall4)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall5)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall6)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall7)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall8)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall9)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall10)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall11)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall12)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall13)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall14)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall15)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-
-        //player 2 
-        if (player2.intersects(wall1)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player1.intersects(wall2)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall3)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall4)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall5)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall6)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall7)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall8)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall9)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall10)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall11)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall12)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall13)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall14)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        if (player1.intersects(wall15)) {
-            player1.x = 55;
-            player1.y = 55;
-        }
-        //player 2
-         if (player2.intersects(wall1)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall2)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall3)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall4)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall5)) {
-            player2.x = 795;
-            player2.y = 55;
-        }if (player2.intersects(wall6)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall7)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall8)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall9)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall10)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall11)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall12)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall13)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall14)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
-        if (player2.intersects(wall15)) {
-            player2.x = 795;
-            player2.y = 55;
-        }
+//        if (player1.intersects(wall1)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall2)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall3)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall4)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall5)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall6)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall7)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall8)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall9)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall10)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall11)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall12)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall13)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall14)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall15)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//
+//        //player 2 
+//        if (player2.intersects(wall1)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player1.intersects(wall2)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall3)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall4)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall5)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall6)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall7)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall8)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall9)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall10)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall11)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall12)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall13)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall14)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        if (player1.intersects(wall15)) {
+//            player1.x = 55;
+//            player1.y = 55;
+//        }
+//        //player 2
+//         if (player2.intersects(wall1)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall2)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall3)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall4)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall5)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }if (player2.intersects(wall6)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall7)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall8)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall9)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall10)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall11)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall12)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall13)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall14)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
+//        if (player2.intersects(wall15)) {
+//            player2.x = 795;
+//            player2.y = 55;
+//        }
     }
 
     private void player1Move() {
@@ -557,7 +528,7 @@ public class MazeRunnerTester extends JComponent implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        preSetup();
+        
         gameLoop();
         repaint();
     }
