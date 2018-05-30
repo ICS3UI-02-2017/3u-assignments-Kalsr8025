@@ -1,5 +1,6 @@
 package Games;
 
+import static Games.MazeRunners.WIDTH;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -20,7 +21,7 @@ import javax.swing.Timer;
  *
  * @author kalsr8025
  */
-public class MazeRunners extends JComponent implements ActionListener {
+public class MazeRunnerTester extends JComponent implements ActionListener {
 
     // Height and Width of our game
     static final int WIDTH = 900;
@@ -39,6 +40,10 @@ public class MazeRunners extends JComponent implements ActionListener {
     //maze walls 
     //The outer path 
     Rectangle path = new Rectangle(50, 50, 800, 700);
+    
+    //testing
+    Rectangle[] walls = new Rectangle[15]; 
+    
     //squares on each corner  
     Rectangle wall1 = new Rectangle(100, 100, 100, 100);
     Rectangle wall2 = new Rectangle(700, 100, 100, 100);
@@ -85,7 +90,7 @@ public class MazeRunners extends JComponent implements ActionListener {
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
-    public MazeRunners() {
+    public MazeRunnerTester() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
 
@@ -102,8 +107,8 @@ public class MazeRunners extends JComponent implements ActionListener {
         frame.setVisible(true);
 
         // add listeners for keyboard and mouse
-        frame.addKeyListener(new Keyboard());
-        Mouse m = new Mouse();
+        frame.addKeyListener(new MazeRunnerTester.Keyboard());
+        MazeRunnerTester.Mouse m = new MazeRunnerTester.Mouse();
         this.addMouseMotionListener(m);
         this.addMouseWheelListener(m);
         this.addMouseListener(m);
@@ -132,6 +137,10 @@ public class MazeRunners extends JComponent implements ActionListener {
 
         //
         g.setColor(Color.WHITE);
+        for (int i = 0; i < walls.length; i++) {
+            //walls [1]= 
+            
+        }
         
         // pathway 
         g.setColor(Color.GRAY);
