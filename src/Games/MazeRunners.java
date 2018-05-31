@@ -64,7 +64,7 @@ public class MazeRunners extends JComponent implements ActionListener {
     Rectangle player1 = new Rectangle(55, 55, 30, 30);
     Rectangle player2 = new Rectangle(795, 55, 30, 30);
     //coins 
-    Rectangle coins = new Rectangle(55, 55, 30, 30);
+    Rectangle[] coins = new Rectangle[20];
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -72,7 +72,7 @@ public class MazeRunners extends JComponent implements ActionListener {
     public MazeRunners() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
-
+        preSetup();
         // sets the size of my game
         this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         // adds the game to the window
@@ -91,7 +91,7 @@ public class MazeRunners extends JComponent implements ActionListener {
         this.addMouseMotionListener(m);
         this.addMouseWheelListener(m);
         this.addMouseListener(m);
-        preSetup();
+
 
         gameTimer = new Timer(desiredTime, this);
         gameTimer.setRepeats(true);
@@ -141,20 +141,24 @@ public class MazeRunners extends JComponent implements ActionListener {
         //Players 
         //player 1
         g.setColor(Color.RED);
-        g.fillRect(player1.x, player1.y, player1.width, player1.height);
+        g.fillOval(player1.x, player1.y, player1.width, player1.height);
+        g.setColor(Color.BLACK);
+        g.drawOval(player1.x, player1.y, player1.width, player1.height);
 
 
         //player 2
         g.setColor(Color.MAGENTA);
-        g.fillRect(player2.x, player2.y, player2.width, player2.height);
+        g.fillOval(player2.x, player2.y, player2.width, player2.height);
+        g.setColor(Color.BLACK);
+        g.drawOval(player2.x, player2.y, player2.width, player2.height);
 
         //text on the bottom 
         //player 1 bottom
         g.setColor(Color.RED);
-        g.fillRect(50, 830, 50, 50);
+        g.fillOval(50, 830, 50, 50);
         //player 2 bottom 
         g.setColor(Color.MAGENTA);
-        g.fillRect(550, 830, 50, 50);
+        g.fillOval(550, 830, 50, 50);
         //text on players at the bottom 
         g.setColor(Color.BLACK);
         g.setFont(biggerfont);
@@ -164,6 +168,27 @@ public class MazeRunners extends JComponent implements ActionListener {
         //Placing Coins in the pathway 
         g.setColor(Color.YELLOW);
         //COINS 
+        g.fillOval(coins[0].x, coins[0].y, coins[0].width, coins[0].height);
+        g.fillOval(coins[1].x, coins[1].y, coins[1].width, coins[1].height);
+        g.fillOval(coins[2].x, coins[2].y, coins[2].width, coins[2].height);
+        g.fillOval(coins[3].x, coins[3].y, coins[3].width, coins[3].height);
+        g.fillOval(coins[4].x, coins[4].y, coins[4].width, coins[4].height);
+        g.fillOval(coins[5].x, coins[5].y, coins[5].width, coins[5].height);
+        g.fillOval(coins[6].x, coins[6].y, coins[6].width, coins[6].height);
+        g.fillOval(coins[7].x, coins[7].y, coins[7].width, coins[7].height);
+        g.fillOval(coins[8].x, coins[8].y, coins[8].width, coins[8].height);
+        g.fillOval(coins[9].x, coins[9].y, coins[9].width, coins[9].height);
+        g.fillOval(coins[10].x, coins[10].y, coins[10].width, coins[10].height);
+        g.fillOval(coins[11].x, coins[11].y, coins[11].width, coins[11].height);
+        g.fillOval(coins[12].x, coins[12].y, coins[12].width, coins[12].height);
+        g.fillOval(coins[13].x, coins[13].y, coins[13].width, coins[13].height);
+        g.fillOval(coins[14].x, coins[14].y, coins[14].width, coins[14].height);
+        g.fillOval(coins[15].x, coins[15].y, coins[15].width, coins[15].height);
+        g.fillOval(coins[16].x, coins[16].y, coins[16].width, coins[16].height);
+        g.fillOval(coins[17].x, coins[17].y, coins[17].width, coins[17].height);
+        g.fillOval(coins[18].x, coins[18].y, coins[18].width, coins[18].height);
+        g.fillOval(coins[19].x, coins[19].y, coins[19].width, coins[19].height);
+
 
 
         //scores 
@@ -180,6 +205,7 @@ public class MazeRunners extends JComponent implements ActionListener {
     // This is run before the game loop begins!
     public void preSetup() {
         // Any of your pre setup before the loop starts should go here
+        //setting up the walls by using arrays 
         walls[0] = new Rectangle(100, 100, 100, 100);
         walls[1] = new Rectangle(700, 100, 100, 100);
         walls[2] = new Rectangle(700, 600, 100, 100);
@@ -196,6 +222,29 @@ public class MazeRunners extends JComponent implements ActionListener {
         walls[12] = new Rectangle(500, 600, 150, 50);
         walls[13] = new Rectangle(750, 350, 50, 50);
         walls[14] = new Rectangle(650, 100, 50, 50);
+
+        //setting up coins 
+        coins[0] = new Rectangle(200, 65, 15, 15);
+        coins[1] = new Rectangle(200, 215, 15, 15);
+        coins[2] = new Rectangle(500, 65, 15, 15);
+        coins[3] = new Rectangle(600, 200, 15, 15);
+        coins[4] = new Rectangle(450, 215, 15, 15);
+        coins[5] = new Rectangle(800, 215, 15, 15);
+        coins[6] = new Rectangle(250, 315, 15, 15);
+        coins[7] = new Rectangle(600, 315, 15, 15);
+        coins[8] = new Rectangle(815, 350, 15, 15);
+        coins[9] = new Rectangle(65, 415, 15, 15);
+        coins[10] = new Rectangle(500, 415, 15, 15);
+        coins[11] = new Rectangle(325, 475, 15, 15);
+        coins[12] = new Rectangle(475, 550, 15, 15);
+        coins[13] = new Rectangle(650, 550, 15, 15);
+        coins[14] = new Rectangle(275, 600, 15, 15);
+        coins[15] = new Rectangle(200, 715, 15, 15);
+        coins[16] = new Rectangle(400, 725, 15, 15);
+        coins[17] = new Rectangle(550, 675, 15, 15);
+        coins[18] = new Rectangle(700, 715, 15, 15);
+        coins[19] = new Rectangle(815, 515, 15, 15);
+
     }
 
     // The main game loop
@@ -239,7 +288,7 @@ public class MazeRunners extends JComponent implements ActionListener {
         //collision with other walls 
         //player 1
         for (int x = 0; x < walls.length; x++) {
-            if (player1.intersects(walls[0])) {
+            if (player1.intersects(walls[x])) {
                 player1.x = 55;
                 player1.y = 55;
             }
@@ -247,7 +296,7 @@ public class MazeRunners extends JComponent implements ActionListener {
 
         //player 2
         for (int y = 0; y < walls.length; y++) {
-            if (player2.intersects(walls[0])) {
+            if (player2.intersects(walls[y])) {
                 player2.x = 795;
                 player2.y = 55;
             }
