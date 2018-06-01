@@ -41,10 +41,6 @@ public class MazeRunners extends JComponent implements ActionListener {
     Rectangle path = new Rectangle(50, 50, 800, 700);
     //inner barriers 
     Rectangle[] walls = new Rectangle[15];
-    //text on the players 
-    Font biggerfont = new Font("arial", Font.BOLD, 20);
-    int p1 = 1;
-    int p2 = 2;
     //score for the coins collected 
     Font scorefont = new Font("arial", Font.BOLD, 60);
     int p1score = 0;
@@ -65,6 +61,10 @@ public class MazeRunners extends JComponent implements ActionListener {
     Rectangle player2 = new Rectangle(795, 55, 30, 30);
     //coins 
     Rectangle[] coins = new Rectangle[20];
+    //clearing the screen once the game has ended 
+    Rectangle clear = new Rectangle(0, 0, WIDTH, HEIGHT);
+    //winning text
+    Font wonfont = new Font("arial", Font.BOLD, 70);
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -145,7 +145,6 @@ public class MazeRunners extends JComponent implements ActionListener {
         g.setColor(Color.BLACK);
         g.drawOval(player1.x, player1.y, player1.width, player1.height);
 
-
         //player 2
         g.setColor(Color.MAGENTA);
         g.fillOval(player2.x, player2.y, player2.width, player2.height);
@@ -155,19 +154,18 @@ public class MazeRunners extends JComponent implements ActionListener {
         //text on the bottom 
         //player 1 bottom
         g.setColor(Color.RED);
-        g.fillOval(50, 830, 50, 50);
+        g.fillOval(100, 830, 50, 50);
         //player 2 bottom 
         g.setColor(Color.MAGENTA);
-        g.fillOval(550, 830, 50, 50);
-        //text on players at the bottom 
-        g.setColor(Color.BLACK);
-        g.setFont(biggerfont);
-        g.drawString("" + p1, 70, 860);
-        g.drawString("" + p2, 570, 860);
+        g.fillOval(600, 830, 50, 50);
 
         //Placing Coins in the pathway 
         g.setColor(Color.YELLOW);
         //COINS 
+        //coins at the bottom 
+        g.fillOval(175, 840, 30, 30);
+        g.fillOval(675, 840, 30, 30);
+        //in maze coins 
         g.fillOval(coins[0].x, coins[0].y, coins[0].width, coins[0].height);
         g.fillOval(coins[1].x, coins[1].y, coins[1].width, coins[1].height);
         g.fillOval(coins[2].x, coins[2].y, coins[2].width, coins[2].height);
@@ -188,16 +186,40 @@ public class MazeRunners extends JComponent implements ActionListener {
         g.fillOval(coins[17].x, coins[17].y, coins[17].width, coins[17].height);
         g.fillOval(coins[18].x, coins[18].y, coins[18].width, coins[18].height);
         g.fillOval(coins[19].x, coins[19].y, coins[19].width, coins[19].height);
-
-
-
         //scores 
         //draw scores 
-        g.setColor(Color.GREEN);
+        g.setColor(Color.YELLOW);
         g.setFont(scorefont);
         g.drawString("" + p1score, 225, 875);
         g.drawString("" + p2score, 720, 875);
 
+        //END SCRREEN 
+        if (p1score + p2score == 20) {
+            g.setColor(Color.GREEN);
+            g.fillRect(clear.x, clear.y, clear.width, clear.height);
+            //print the end
+            g.setColor(Color.BLACK);
+            g.setFont(wonfont);
+            g.drawString ("THE END", 100, 150);
+            //print the players scores 
+            g.drawString("PLAYER 1", 100, 200);
+            
+            if (p1score > p2score) {
+                g.setColor(Color.BLACK);
+                g.setFont(wonfont);
+                g.drawString("YOU WON PLAYER 1", 100, 700);
+            }
+            if (p2score>p1score){
+                g.setColor(Color.BLACK);
+                g.setFont(wonfont);
+                g.drawString("YOU WON PLAYER 2", 100, 700);
+            }
+            if (p1score == p2score){
+                g.setColor(Color.BLACK);
+                g.setFont(wonfont);
+                g.drawString("TIE", 100, 100);
+            }
+        }
         // GAME DRAWING ENDS HERE
     }
 
@@ -307,34 +329,46 @@ public class MazeRunners extends JComponent implements ActionListener {
     private void player1Move() {
         //player 1 move Y 
         if (player1UP) {
-            player1.y -= 3;
+            player1.y -= 5;
         } else if (player1DOWN) {
-            player1.y += 3;
+            player1.y += 5;
         }
         //player 1 X
         if (player1RIGHT) {
-            player1.x -= 3;
+            player1.x -= 5;
         } else if (player1LEFT) {
-            player1.x += 3;
+            player1.x += 5;
         }
     }
 
     private void player2Move() {
         //player 2 move Y 
         if (player2UP) {
-            player2.y -= 3;
+            player2.y -= 5;
         } else if (player2DOWN) {
-            player2.y += 3;
+            player2.y += 5;
         }
         //player 2 X
         if (player2RIGHT) {
-            player2.x += 3;
+            player2.x += 5;
         } else if (player2LEFT) {
-            player2.x -= 3;
+            player2.x -= 5;
         }
     }
 
     private void collectingcoins() {
+        for (int c = 0; c < coins.length; c++) {
+            if (player1.intersects(coins[c])) {
+                p1score += 1;
+                coins[c].x = 180;
+                coins[c].y = 845;
+            }
+            if (player2.intersects(coins[c])) {
+                p2score += 1;
+                coins[c].x = 680;
+                coins[c].y = 845;
+            }
+        }
     }
 
     // Used to implement any of the Mouse Actions
