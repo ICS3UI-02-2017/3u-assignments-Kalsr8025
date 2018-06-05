@@ -66,10 +66,11 @@ public class MazeRunners extends JComponent implements ActionListener {
     //winning text
     Font wonfont = new Font("arial", Font.BOLD, 70);
     //set the colour value to change
-    int randNumR = (int) (Math.random() * (255 - 0 + 1)) + 0;
-    int randNumG = (int) (Math.random() * (255 - 0 + 1)) + 0;
-    int randNumB = (int) (Math.random() * (255 - 0 + 1)) + 0;
-    Color wallcolour = new Color(randNumR, randNumG, randNumB);
+    int randNumR1 = (int) (Math.random() * (255 - 0 + 1)) + 0;
+    int randNumG1 = (int) (Math.random() * (255 - 0 + 1)) + 0;
+    int randNumB1 = (int) (Math.random() * (255 - 0 + 1)) + 0;
+
+    Color wallcolour = new Color(100, 100, 100);
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -202,6 +203,15 @@ public class MazeRunners extends JComponent implements ActionListener {
                 g.drawString("TIE", 100, 700);
             }
         }
+        //https://processing.org/examples/hue.html
+        //wall colour change test
+//        int whichBar = mouseX / barWidth;
+//        if (whichBar != lastBar) {
+//           int barX = whichBar * barWidth;
+//         g.fillRect(mouseY, height, height);
+//            g.fillRect(barX, barX, barX, barX);rect(barX, 0, barWidth, height);
+//            lastBar = whichBar;
+
 
         // GAME DRAWING ENDS HERE
     }
@@ -258,8 +268,9 @@ public class MazeRunners extends JComponent implements ActionListener {
         checkForCollision();
         player1Move();
         player2Move();
-        collectingcoins();
         changethewallcolor();
+        collectingcoins();
+
 
     }
 
@@ -341,6 +352,17 @@ public class MazeRunners extends JComponent implements ActionListener {
         }
     }
 
+    private void changethewallcolor() {
+        for (int c = 0; c < coins.length; c++) {
+            if (player1.intersects(coins[c])) {
+                wallcolour = new Color(randNumR1, randNumG1, randNumB1);
+            }
+            if (player2.intersects(coins[c])) {
+                wallcolour = new Color(randNumR1, randNumG1, randNumB1);
+            }
+        }
+    }
+
     private void collectingcoins() {
         for (int c = 0; c < coins.length; c++) {
             if (player1.intersects(coins[c])) {
@@ -354,21 +376,6 @@ public class MazeRunners extends JComponent implements ActionListener {
                 coins[c].y = 845;
             }
         }
-    }
-
-    private void changethewallcolor() {
-//        for (int c = 0; c < coins.length; c++) {
-//            if (player1.intersects(coins[c])) {
-//                int randNumR = (int) (Math.random() * (255 - 0 + 1)) + 0;
-//                int randNumG = (int) (Math.random() * (255 - 0 + 1)) + 0;
-//                int randNumB = (int) (Math.random() * (255 - 0 + 1)) + 0;
-//            }
-//            if (player2.intersects(coins[c])) {
-//                int randNumR = (int) (Math.random() * (225 - 0 + 1)) + 0;
-//                int randNumG = (int) (Math.random() * (255 - 0 + 1)) + 0;
-//                int randNumB = (int) (Math.random() * (255 - 0 + 1)) + 0;
-//            }
-//        }
     }
 
     // Used to implement any of the Mouse Actions
