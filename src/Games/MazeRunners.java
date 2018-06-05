@@ -66,10 +66,9 @@ public class MazeRunners extends JComponent implements ActionListener {
     //winning text
     Font wonfont = new Font("arial", Font.BOLD, 70);
     //set the colour value to change
-    //timer for the game
-    int randNumR = (int) (Math.random() * (225 - 0 + 1)) + 0;
-    int randNumG = (int) (Math.random() * (225 - 0 + 1)) + 0;
-    int randNumB = (int) (Math.random() * (225 - 0 + 1)) + 0;
+    int randNumR = (int) (Math.random() * (255 - 0 + 1)) + 0;
+    int randNumG = (int) (Math.random() * (255 - 0 + 1)) + 0;
+    int randNumB = (int) (Math.random() * (255 - 0 + 1)) + 0;
     Color wallcolour = new Color(randNumR, randNumG, randNumB);
 
     // GAME VARIABLES END HERE    
@@ -97,7 +96,6 @@ public class MazeRunners extends JComponent implements ActionListener {
         this.addMouseMotionListener(m);
         this.addMouseWheelListener(m);
         this.addMouseListener(m);
-
 
         gameTimer = new Timer(desiredTime, this);
         gameTimer.setRepeats(true);
@@ -173,13 +171,12 @@ public class MazeRunners extends JComponent implements ActionListener {
         g.drawString("" + p1score, 225, 875);
         g.drawString("" + p2score, 720, 875);
 
-
         //END SCREEN 
         if (p1score + p2score == 20) {
             g.setColor(Color.BLACK);
             g.fillRect(clear.x, clear.y, clear.width, clear.height);
             //print the end
-            g.setColor(Color.GREEN);
+            g.setColor(Color.WHITE);
             g.setFont(wonfont);
             g.drawString("THE END", 350, 150);
             //print the players scores 
@@ -360,22 +357,18 @@ public class MazeRunners extends JComponent implements ActionListener {
     }
 
     private void changethewallcolor() {
-
-        for (int c = 0; c < coins.length; c++) {
-            if (player1.intersects(coins[c])) {
-                randNumR +=50;
-                randNumG+=50;
-                randNumB+=50;
-            }
-            if (player2.intersects(coins[c])) {
-                randNumR+=50;
-                randNumG+=50;
-                randNumB+=50;
-            }
-        }
-
-
-
+//        for (int c = 0; c < coins.length; c++) {
+//            if (player1.intersects(coins[c])) {
+//                int randNumR = (int) (Math.random() * (255 - 0 + 1)) + 0;
+//                int randNumG = (int) (Math.random() * (255 - 0 + 1)) + 0;
+//                int randNumB = (int) (Math.random() * (255 - 0 + 1)) + 0;
+//            }
+//            if (player2.intersects(coins[c])) {
+//                int randNumR = (int) (Math.random() * (225 - 0 + 1)) + 0;
+//                int randNumG = (int) (Math.random() * (255 - 0 + 1)) + 0;
+//                int randNumB = (int) (Math.random() * (255 - 0 + 1)) + 0;
+//            }
+//        }
     }
 
     // Used to implement any of the Mouse Actions
