@@ -20,7 +20,7 @@ import javax.swing.Timer;
  *
  * @author kalsr8025
  */
-public class MazeRunners extends JComponent implements ActionListener {
+public class MazeRunners2 extends JComponent implements ActionListener {
 
     // Height and Width of our game
     static final int WIDTH = 900;
@@ -74,7 +74,7 @@ public class MazeRunners extends JComponent implements ActionListener {
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
-    public MazeRunners() {
+    public MazeRunners2() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
         preSetup();
@@ -461,6 +461,6 @@ public class MazeRunners extends JComponent implements ActionListener {
      */
     public static void main(String[] args) {
         // creates an instance of my game
-        MazeRunners game = new MazeRunners();
+        MazeRunners2 game = new MazeRunners2();
     }
 }
