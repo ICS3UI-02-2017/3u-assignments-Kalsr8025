@@ -18,7 +18,7 @@ import javax.swing.Timer;
  *
  * @author Kalsr8025
  */
-public class airhockey extends JComponent implements ActionListener {
+public class Airhockey_testing extends JComponent implements ActionListener {
 
     // Height and Width of our game
     static final int WIDTH = 1000;
@@ -53,7 +53,7 @@ public class airhockey extends JComponent implements ActionListener {
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
-    public airhockey() {
+    public Airhockey_testing() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
 
@@ -214,6 +214,6 @@ public class airhockey extends JComponent implements ActionListener {
      */
     public static void main(String[] args) {
         // creates an instance of my game
-        airhockey game = new airhockey();
+        Airhockey_testing game = new Airhockey_testing();
     }
 }

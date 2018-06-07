@@ -26,7 +26,7 @@ public class MazeRunners2 extends JComponent implements ActionListener {
     static final int WIDTH = 900;
     static final int HEIGHT = 900;
     //Title of the window
-    String title = "MAZE RUNNER";
+    String title = "MAZE RUNNER (ADVANCE)";
     // sets the framerate and delay for our game
     // this calculates the number of milliseconds per frame
     // you just need to select an approproate framerate
@@ -70,6 +70,9 @@ public class MazeRunners2 extends JComponent implements ActionListener {
     int randNumG = (int) (Math.random() * (225 - 0 + 1)) + 0;
     int randNumB = (int) (Math.random() * (225 - 0 + 1)) + 0;
     Color wallcolour = new Color(randNumR, randNumG, randNumB);
+    //create advance games by adding enemies 
+    Rectangle[] enemies = new Rectangle[14];
+    boolean enemiesMove = false;
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -171,6 +174,13 @@ public class MazeRunners2 extends JComponent implements ActionListener {
         g.drawString("" + p1score, 225, 875);
         g.drawString("" + p2score, 720, 875);
 
+        //enemies 
+        for (int e = 0; e < enemies.length; e++) {
+            g.setColor(Color.WHITE);
+            g.fillRect(enemies[e].x, enemies[e].y, enemies[e].width, enemies[e].height);
+
+        }
+
         //END SCREEN 
         if (p1score + p2score == 20) {
             g.setColor(Color.BLACK);
@@ -252,6 +262,23 @@ public class MazeRunners2 extends JComponent implements ActionListener {
         coins[18] = new Rectangle(700, 715, 15, 15);
         coins[19] = new Rectangle(815, 515, 15, 15);
 
+        //setting array of enemies 
+        enemies[13] = new Rectangle(25, 50, 10, 10);
+        enemies[0] = new Rectangle(0, 100, 10, 10);
+        enemies[1] = new Rectangle(25, 150, 10, 10);
+        enemies[2] = new Rectangle(0, 200, 10, 10);
+        enemies[3] = new Rectangle(25, 250, 10, 10);
+        enemies[4] = new Rectangle(0, 300, 10, 10);
+        enemies[5] = new Rectangle(25, 350, 10, 10);
+        enemies[6] = new Rectangle(0, 400, 10, 10);
+        enemies[7] = new Rectangle(25, 450, 10, 10);
+        enemies[8] = new Rectangle(0, 500, 10, 10);
+        enemies[9] = new Rectangle(25, 550, 10, 10);
+        enemies[10] = new Rectangle(0, 600, 10, 10);
+        enemies[11] = new Rectangle(25, 650, 10, 10);
+        enemies[12] = new Rectangle(0, 700, 10, 10);
+
+
     }
 
     // The main game loop
@@ -261,7 +288,8 @@ public class MazeRunners2 extends JComponent implements ActionListener {
         player1Move();
         player2Move();
         collectingcoins();
-
+        movingenemies();
+        collisionwithenemies();
 
     }
 
@@ -359,6 +387,25 @@ public class MazeRunners2 extends JComponent implements ActionListener {
         }
     }
 
+    private void movingenemies() {
+        for (int i = 0; i < enemies.length; i++) {
+            if (enemiesMove) {
+                enemies[i].x += 10;
+            }
+
+            if (enemies[i].x >= 850) {
+                enemies[i].x = 0;
+            }
+
+        }
+        if (!(player1.y == 0 || player2.y == 0)) {
+            enemiesMove = true;
+        }
+    }
+
+    private void collisionwithenemies() {
+    }
+
     // Used to implement any of the Mouse Actions
     private class Mouse extends MouseAdapter {
 
@@ -414,6 +461,7 @@ public class MazeRunners2 extends JComponent implements ActionListener {
                 player2RIGHT = true;
             } else if (keyCode == KeyEvent.VK_LEFT) {
                 player2LEFT = true;
+
             }
         }
 
