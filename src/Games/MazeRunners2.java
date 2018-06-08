@@ -71,8 +71,9 @@ public class MazeRunners2 extends JComponent implements ActionListener {
     int randNumB = (int) (Math.random() * (225 - 0 + 1)) + 0;
     Color wallcolour = new Color(randNumR, randNumG, randNumB);
     //create advance games by adding enemies 
-    Rectangle[] enemies = new Rectangle[14];
+    Rectangle[] enemies = new Rectangle[8];
     boolean enemiesMove = false;
+    int randomnum = (int) (Math.random() * 800);
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -263,20 +264,15 @@ public class MazeRunners2 extends JComponent implements ActionListener {
         coins[19] = new Rectangle(815, 515, 15, 15);
 
         //setting array of enemies 
-        enemies[13] = new Rectangle(25, 50, 10, 10);
-        enemies[0] = new Rectangle(0, 100, 10, 10);
-        enemies[1] = new Rectangle(25, 150, 10, 10);
-        enemies[2] = new Rectangle(0, 200, 10, 10);
-        enemies[3] = new Rectangle(25, 250, 10, 10);
-        enemies[4] = new Rectangle(0, 300, 10, 10);
-        enemies[5] = new Rectangle(25, 350, 10, 10);
-        enemies[6] = new Rectangle(0, 400, 10, 10);
-        enemies[7] = new Rectangle(25, 450, 10, 10);
-        enemies[8] = new Rectangle(0, 500, 10, 10);
-        enemies[9] = new Rectangle(25, 550, 10, 10);
-        enemies[10] = new Rectangle(0, 600, 10, 10);
-        enemies[11] = new Rectangle(25, 650, 10, 10);
-        enemies[12] = new Rectangle(0, 700, 10, 10);
+        enemies[0] = new Rectangle(25, 50, 15, 15);
+        enemies[1] = new Rectangle(25, 150, 15, 15);
+        enemies[2] = new Rectangle(25, 250, 15, 15);
+        enemies[3] = new Rectangle(25, 350, 15, 15);
+        enemies[4] = new Rectangle(25, 450, 15, 15);
+        enemies[5] = new Rectangle(25, 550, 15, 15);
+        enemies[6] = new Rectangle(25, 650, 15, 15);
+        enemies[7] = new Rectangle(25, 735, 15, 15);
+
 
 
     }
@@ -388,22 +384,47 @@ public class MazeRunners2 extends JComponent implements ActionListener {
     }
 
     private void movingenemies() {
+
         for (int i = 0; i < enemies.length; i++) {
             if (enemiesMove) {
-                enemies[i].x += 10;
+                enemies[i].x += 20;
             }
 
-            if (enemies[i].x >= 850) {
+            if (enemies[i].x >= 900) {
                 enemies[i].x = 0;
+
             }
 
         }
         if (!(player1.y == 0 || player2.y == 0)) {
             enemiesMove = true;
         }
+
     }
 
     private void collisionwithenemies() {
+        for (int i = 0; i < enemies.length; i++) {
+            if (player1.intersects(enemies[i])) {
+                player1.x = 55;
+                player1.y = 55;
+                p1score -= 1;
+
+                enemies[i].x += 30;
+                enemies[i].y += 5;
+
+            }
+            if (player2.intersects(enemies[i])) {
+                player2.x = 795;
+                player2.y = 55;
+                p2score -= 1;
+                enemies[i].x += 30;
+                enemies[i].y += 5;
+
+
+
+            }
+
+        }
     }
 
     // Used to implement any of the Mouse Actions

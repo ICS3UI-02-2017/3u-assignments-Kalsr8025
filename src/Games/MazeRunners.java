@@ -300,17 +300,19 @@ public class MazeRunners extends JComponent implements ActionListener {
             if (player1.intersects(walls[x])) {
                 player1.x = 55;
                 player1.y = 55;
+                p1score -= 1;
             }
-        }
 
-        //player 2
-        for (int y = 0; y < walls.length; y++) {
-            if (player2.intersects(walls[y])) {
-                player2.x = 795;
-                player2.y = 55;
+            //player 2
+            for (int y = 0; y < walls.length; y++) {
+                if (player2.intersects(walls[y])) {
+                    player2.x = 795;
+                    player2.y = 55;
+                    p2score -= 1;
+                }
             }
-        }
 
+        }
     }
 
     private void player1Move() {
