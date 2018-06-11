@@ -74,10 +74,11 @@ public class MazeRunners2 extends JComponent implements ActionListener {
     Rectangle[] enemies = new Rectangle[8];
     boolean enemiesMove = false;
     int randomnum = (int) (Math.random() * 800);
-
+    Rectangle[] coinscopy = new Rectangle[20];
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
     // You will learn more about this in Grade 12 :)
+
     public MazeRunners2() {
         // creates a windows to show my game
         JFrame frame = new JFrame(title);
@@ -272,9 +273,6 @@ public class MazeRunners2 extends JComponent implements ActionListener {
         enemies[5] = new Rectangle(25, 550, 15, 15);
         enemies[6] = new Rectangle(25, 650, 15, 15);
         enemies[7] = new Rectangle(25, 735, 15, 15);
-
-
-
     }
 
     // The main game loop
@@ -408,7 +406,6 @@ public class MazeRunners2 extends JComponent implements ActionListener {
                 player1.x = 55;
                 player1.y = 55;
                 p1score -= 1;
-
                 enemies[i].x += 30;
                 enemies[i].y += 5;
 
@@ -419,8 +416,6 @@ public class MazeRunners2 extends JComponent implements ActionListener {
                 p2score -= 1;
                 enemies[i].x += 30;
                 enemies[i].y += 5;
-
-
 
             }
 

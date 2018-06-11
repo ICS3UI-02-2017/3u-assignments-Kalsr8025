@@ -298,17 +298,15 @@ public class MazeRunners extends JComponent implements ActionListener {
         //player 1
         for (int x = 0; x < walls.length; x++) {
             if (player1.intersects(walls[x])) {
-                player1.x = 55;
-                player1.y = 55;
-                p1score -= 1;
+                player1.x = 800;
+                player1.y = 50;
             }
 
             //player 2
             for (int y = 0; y < walls.length; y++) {
                 if (player2.intersects(walls[y])) {
-                    player2.x = 795;
-                    player2.y = 55;
-                    p2score -= 1;
+                    player2.x = 100;
+                    player2.y = 50;
                 }
             }
 
@@ -350,18 +348,18 @@ public class MazeRunners extends JComponent implements ActionListener {
         for (int c = 0; c < coins.length; c++) {
             if (player1.intersects(coins[c])) {
                 p1score += 1;
-                coins[c].x = 180;
-                coins[c].y = 845;
+                coins[c].x = 200;
+                coins[c].y = 800;
             }
             if (player2.intersects(coins[c])) {
                 p2score += 1;
-                coins[c].x = 680;
-                coins[c].y = 845;
+                coins[c].x = 70;
+                coins[c].y = 800;
             }
         }
     }
 
-    // Used to implement any of the Mouse Actions
+// Used to implement any of the Mouse Actions
     private class Mouse extends MouseAdapter {
 
         // if a mouse button has been pressed down
@@ -385,7 +383,7 @@ public class MazeRunners extends JComponent implements ActionListener {
         }
     }
 
-    // Used to implements any of the Keyboard Actions
+// Used to implements any of the Keyboard Actions
     private class Keyboard extends KeyAdapter {
 
         // if a key has been pressed down
