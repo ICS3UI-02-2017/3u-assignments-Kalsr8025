@@ -348,12 +348,12 @@ public class MazeRunners extends JComponent implements ActionListener {
         for (int c = 0; c < coins.length; c++) {
             if (player1.intersects(coins[c])) {
                 p1score += 1;
-                coins[c].x = 200;
+                coins[c].x = 100;
                 coins[c].y = 800;
             }
             if (player2.intersects(coins[c])) {
                 p2score += 1;
-                coins[c].x = 70;
+                coins[c].x = 600;
                 coins[c].y = 800;
             }
         }
