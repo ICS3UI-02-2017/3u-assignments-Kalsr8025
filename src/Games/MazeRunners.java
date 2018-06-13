@@ -311,6 +311,13 @@ public class MazeRunners extends JComponent implements ActionListener {
             }
 
         }
+        //players bumping into each other 
+        if (player2.intersects(player1)) {
+            player1.x -= 5;
+            player1.y += 5;
+            player2.x += 5;
+            player2.y -= 5;
+        }
     }
 
     private void player1Move() {
@@ -348,13 +355,13 @@ public class MazeRunners extends JComponent implements ActionListener {
         for (int c = 0; c < coins.length; c++) {
             if (player1.intersects(coins[c])) {
                 p1score += 1;
-                coins[c].x = 100;
-                coins[c].y = 800;
+                coins[c].x = -100;
+                coins[c].y = -100;
             }
             if (player2.intersects(coins[c])) {
                 p2score += 1;
-                coins[c].x = 600;
-                coins[c].y = 800;
+                coins[c].x = -100;
+                coins[c].y = -100;
             }
         }
     }
