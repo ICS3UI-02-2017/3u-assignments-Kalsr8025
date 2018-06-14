@@ -2,7 +2,9 @@ package Games;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
@@ -33,22 +35,35 @@ public class Airhockey_testing extends JComponent implements ActionListener {
     // timer used to run the game loop
     // this is what keeps our time running smoothly :)
     Timer gameTimer;
-    // YOUR GAME VARIABLES WOULD GO HERE
-    //player one move 
+    // YOUR GAME VARIABLES WOULD GO HERE  
+    Rectangle puck = new Rectangle(468, 268, 60, 60);
+    Rectangle pucktop = new Rectangle(473, 273, 50, 50);
     //top and bottom of player one 
-    int player1X = 20;
-    int player1Xtop = 40;
-    int player1Y = 267;
-    int player1Ytop = 287;
-    //player two move 
+    Rectangle player1 = new Rectangle(20, 267, 80, 80);
+    Rectangle player1top = new Rectangle(40, 287, 40, 40);
     //top and bottom of player two
-    int player2X = 900;
-    int player2Xtop = 920;
-    int player2Y = 267;
-    int player2Ytop = 287;
+    Rectangle player2 = new Rectangle(900, 267, 80, 80);
+    Rectangle player2top = new Rectangle(920, 287, 40, 40);
+    //Puck movement 
+    //ball bouncing
+    int ballAngle = 45;
+    int ballSpeed = 5;
     //booleans 
-    boolean moveup = false;
-    boolean movedown = false;
+    //player 1 
+    boolean moveup1 = false;
+    boolean movedown1 = false;
+    boolean moveright1 = false;
+    boolean moveleft1 = false;
+    //player 2
+    boolean moveup2 = false;
+    boolean movedown2 = false;
+    boolean moveright2 = false;
+    boolean moveleft2 = false;
+    //scores 
+    int score1 = 0;
+    int score2 = 0;
+    //create custom font 
+    Font scorefont = new Font("arial", Font.BOLD, 36);
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -124,27 +139,28 @@ public class Airhockey_testing extends JComponent implements ActionListener {
 
         //puck
         g.setColor(Color.BLACK);
-        g.fillOval(468, 268, 60, 60);
-//        g.setColor(Color.DARK_GRAY);
-//        g.fillOval(473, 273, 50, 50);
+        g.fillOval(puck.x, puck.y, puck.height, 60);
+        g.setColor(Color.DARK_GRAY);
+        g.fillOval(473, 273, 50, 50);
 
         //player one 
         g.setColor(Color.BLACK);
         //circle 
-        g.fillOval(player1X, player1Y, 80, 80);
+        g.fillOval(20, 267, 80, 80);
         //top part 
         g.setColor(Color.CYAN);
         //top circle 
-        g.fillOval(player1Xtop, player1Ytop, 40, 40);
+        g.fillOval(40, 287, 40, 40);
 
         //player two 
         g.setColor(Color.BLACK);
         //circle 
-        g.fillOval(player2X, player2Y, 80, 80);
+        g.fillOval(900, 267, 80, 80);
         //top part 
         g.setColor(Color.PINK);
         //top circle 
-        g.fillOval(player2Xtop, player2Ytop, 40, 40);
+        g.fillOval(920, 287, 40, 40);
+
 
         // GAME DRAWING ENDS HERE
     }
@@ -158,7 +174,6 @@ public class Airhockey_testing extends JComponent implements ActionListener {
     // The main game loop
     // In here is where all the logic for my game will go
     public void gameLoop() {
-        
     }
 
     // Used to implement any of the Mouse Actions
@@ -193,7 +208,7 @@ public class Airhockey_testing extends JComponent implements ActionListener {
         public void keyPressed(KeyEvent e) {
             //get the keycode 
             int keycode = e.getKeyCode();
-            
+
         }
 
         // if a key has been released
