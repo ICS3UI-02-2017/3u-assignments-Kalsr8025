@@ -65,7 +65,7 @@ public class MazeRunners extends JComponent implements ActionListener {
     Rectangle clear = new Rectangle(0, 0, WIDTH, HEIGHT);
     //winning text
     Font wonfont = new Font("arial", Font.BOLD, 70);
-    //set the colour value to change
+    //set the colour value to change//use else if statement 
     int randNumR = (int) (Math.random() * (225 - 0 + 1)) + 0;
     int randNumG = (int) (Math.random() * (225 - 0 + 1)) + 0;
     int randNumB = (int) (Math.random() * (225 - 0 + 1)) + 0;
@@ -186,16 +186,19 @@ public class MazeRunners extends JComponent implements ActionListener {
             g.drawString("PLAYER 2", 100, 350);
             g.drawString("" + p2score, 600, 350);
 
+            //if player 1's score is higher than player 2
             if (p1score > p2score) {
                 g.setColor(Color.RED);
                 g.setFont(wonfont);
                 g.drawString("YOU WON PLAYER 1", 100, 700);
             }
+            //if player 2's score is higher than player 1
             if (p2score > p1score) {
                 g.setColor(Color.MAGENTA);
                 g.setFont(wonfont);
                 g.drawString("YOU WON PLAYER 2", 100, 700);
             }
+            //if both player's score is same 
             if (p1score == p2score) {
                 g.setColor(Color.WHITE);
                 g.setFont(wonfont);
@@ -353,11 +356,13 @@ public class MazeRunners extends JComponent implements ActionListener {
 
     private void collectingcoins() {
         for (int c = 0; c < coins.length; c++) {
+            //player one collects coin and the coin moves off screen 
             if (player1.intersects(coins[c])) {
                 p1score += 1;
                 coins[c].x = -100;
                 coins[c].y = -100;
             }
+            //player two collects coin and the coin moves off screen 
             if (player2.intersects(coins[c])) {
                 p2score += 1;
                 coins[c].x = -100;
