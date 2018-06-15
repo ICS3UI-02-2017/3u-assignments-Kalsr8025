@@ -142,21 +142,28 @@ public class MazeRunners extends JComponent implements ActionListener {
             } else if (wallchange == 8) {
                 wallchange = 0;
             }
+            //drawign wall depending on the array 
             g.fillRect(walls[i].x, walls[i].y, walls[i].width, walls[i].height);
+            //change the colour to outline the wall 
             g.setColor(Color.BLACK);
+            //creating the outline of the wall 
             g.drawRect(walls[i].x, walls[i].y, walls[i].width, walls[i].height);
         }
 
         //Players 
         //player 1
         g.setColor(Color.RED);
+        //creating the player
         g.fillOval(player1.x, player1.y, player1.width, player1.height);
+        //creating the player outline 
         g.setColor(Color.BLACK);
         g.drawOval(player1.x, player1.y, player1.width, player1.height);
 
         //player 2
         g.setColor(Color.MAGENTA);
+        //creating the second player 
         g.fillOval(player2.x, player2.y, player2.width, player2.height);
+        //outline it 
         g.setColor(Color.BLACK);
         g.drawOval(player2.x, player2.y, player2.width, player2.height);
 
