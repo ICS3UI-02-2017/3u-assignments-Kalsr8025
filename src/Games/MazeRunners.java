@@ -65,11 +65,8 @@ public class MazeRunners extends JComponent implements ActionListener {
     Rectangle clear = new Rectangle(0, 0, WIDTH, HEIGHT);
     //winning text
     Font wonfont = new Font("arial", Font.BOLD, 70);
-    //set the colour value to change//use else if statement 
-    int randNumR = (int) (Math.random() * (225 - 0 + 1)) + 0;
-    int randNumG = (int) (Math.random() * (225 - 0 + 1)) + 0;
-    int randNumB = (int) (Math.random() * (225 - 0 + 1)) + 0;
-    Color wallcolour = new Color(randNumR, randNumG, randNumB);
+    //int for changing the wall colour
+    int wallchange = 0;
 
     // GAME VARIABLES END HERE    
     // Constructor to create the Frame and place the panel in
@@ -123,9 +120,28 @@ public class MazeRunners extends JComponent implements ActionListener {
         g.setColor(Color.GRAY);
         g.fillRect(path.x, path.y, path.width, path.height);
 
-        //for statement to fill and outline the walls 
+        //for statement to fill and outline the walls
         for (int i = 0; i < walls.length; i++) {
-            g.setColor(wallcolour);
+            // change the wall colour 
+            if (wallchange == 0) {
+                g.setColor(Color.GREEN);
+            } else if (wallchange == 1) {
+                g.setColor(Color.YELLOW);
+            } else if (wallchange == 2) {
+                g.setColor(Color.BLUE);
+            } else if (wallchange == 3) {
+                g.setColor(Color.CYAN);
+            } else if (wallchange == 4) {
+                g.setColor(Color.ORANGE);
+            } else if (wallchange == 5) {
+                g.setColor(Color.PINK);
+            } else if (wallchange == 6) {
+                g.setColor(Color.WHITE);
+            } else if (wallchange == 7) {
+                g.setColor(Color.LIGHT_GRAY);
+            } else if (wallchange == 8) {
+                wallchange = 0;
+            }
             g.fillRect(walls[i].x, walls[i].y, walls[i].width, walls[i].height);
             g.setColor(Color.BLACK);
             g.drawRect(walls[i].x, walls[i].y, walls[i].width, walls[i].height);
@@ -205,7 +221,6 @@ public class MazeRunners extends JComponent implements ActionListener {
                 g.drawString("TIE", 100, 700);
             }
         }
-
 
 
         // GAME DRAWING ENDS HERE
@@ -361,12 +376,14 @@ public class MazeRunners extends JComponent implements ActionListener {
                 p1score += 1;
                 coins[c].x = -100;
                 coins[c].y = -100;
+                wallchange++;
             }
             //player two collects coin and the coin moves off screen 
             if (player2.intersects(coins[c])) {
                 p2score += 1;
                 coins[c].x = -100;
                 coins[c].y = -100;
+                wallchange++;
             }
         }
     }
